@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FastBilly — Bill Hudak · operator, growth exec, app builder</title>
+  <meta name="description" content="Bill Hudak — growth executive and app builder. What I'm shipping, how I ship it, and how to work together." />
+  <meta name="theme-color" content="#211E24" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'><path d='M2 28 L9 10 L14 22 L20 6 L26 22 L31 10 L38 28 Z' fill='none' stroke='%23FF6BD8' stroke-width='3' stroke-linejoin='round' stroke-linecap='round'/></svg>" />
+
+  <meta property="og:title" content="FastBilly — Bill Hudak" />
+  <meta property="og:description" content="Growth executive and app builder. What I'm shipping, how I ship it, and how to work together." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fastbilly.com/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="#" class="brand" aria-label="FastBilly home">
+        <svg class="brand-mark" viewBox="0 0 40 32" aria-hidden="true">
+          <path d="M2 28 L9 10 L14 22 L20 6 L26 22 L31 10 L38 28 Z"
+                fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+        <span>FastBilly</span>
+      </a>
+      <nav class="header-right" aria-label="Primary">
+        <a href="#apps" class="nav-link">Apps</a>
+        <a href="#engage" class="nav-link">10-hour</a>
+        <a href="#writing" class="nav-link">Writing</a>
+        <a href="#events" class="nav-link">Where I'll be</a>
+        <a href="#contact" class="nav-link nav-cta">Get in touch</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-dot" aria-hidden="true"></span>
+          <span id="themeLabel">Dark</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ========================= HERO ========================= -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">A COMPANY OF ONE</div>
+        <h1 class="hero-title">
+          Bill Hudak. <span class="accent">Growth exec.</span> App builder. <em>Operator at large.</em>
+        </h1>
+        <p class="hero-sub">
+          I run ecommerce and growth for consumer software brands and, on the side, ship real
+          apps in an afternoon. This is the hub — what I'm building, how I ship it, and how
+          to work together.
+        </p>
+        <div class="hero-ctas">
+          <a href="#apps" class="btn btn-primary">See what I've shipped</a>
+          <a href="#engage" class="btn btn-ghost">The 10-hour engagement</a>
+        </div>
+
+        <!-- terminal strip -->
+        <div class="terminal" aria-hidden="true">
+          <div class="terminal-bar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <span class="terminal-title">bill@fastbilly ~ %</span>
+          </div>
+          <pre class="terminal-body"><span class="mono-dim">$</span> whoami
+bill hudak — growth · retention · lifecycle · rapid prototyping
+<span class="mono-dim">$</span> what
+apps that ship. decks that don't lie. dashboards that answer questions.
+<span class="mono-dim">$</span> stack
+perplexity computer · react · vite · supabase · vercel · github
+<span class="mono-dim">$</span> status
+<span class="blink">▍</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= APPS ========================= -->
+    <section id="apps" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">SHIPPED &amp; SHIPPING</div>
+          <h2 class="section-title">Apps I've built as a company of one.</h2>
+          <p class="section-lede">
+            Each of these solves a real problem I had, then got shared with the small group
+            of people who had the same problem. React + Vite + Supabase + Vercel or a
+            Perplexity-hosted app link, depending on who needs access. Time from idea to
+            deployed URL, in the caption.
+          </p>
+        </div>
+
+        <div class="cards">
+
+          <a class="card card-featured" href="https://company-of-one.pplx.app" target="_blank" rel="noopener">
+            <div class="card-tag mono">flagship · investor-ready</div>
+            <h3 class="card-title">Company of One</h3>
+            <p class="card-desc">A working guide to how one operator ships real software — the stack, the costs, and the workflow behind it. Reads like Stripe docs meets a strong LinkedIn post.</p>
+            <div class="card-stats mono">
+              <span><span class="mono-dim">stack</span> React + Vite + Vercel</span>
+              <span><span class="mono-dim">built</span> one afternoon</span>
+            </div>
+            <div class="card-meta">
+              <span class="pill">Live</span>
+              <span class="mono-dim">company-of-one.pplx.app →</span>
+            </div>
+          </a>
+
+          <a class="card" href="https://ye-chicago-trip.vercel.app" target="_blank" rel="noopener">
+            <div class="card-tag mono">social · trips</div>
+            <h3 class="card-title">YE · Chicago</h3>
+            <p class="card-desc">Phone-first trip companion for a 14-person concert weekend at Soldier Field — itinerary, suite &amp; tickets, roster, questions, and a live pulse. Seven mobile tabs, real seat allocation, insert-only public forms.</p>
+            <div class="card-stats mono">
+              <span><span class="mono-dim">stack</span> React + Supabase + Vercel</span>
+              <span><span class="mono-dim">built</span> over a weekend</span>
+            </div>
+            <div class="card-meta">
+              <span class="pill">Live</span>
+              <span class="mono-dim">ye-chicago-trip.vercel.app →</span>
+            </div>
+          </a>
+
+          <a class="card" href="https://pv-housing-tour-guide.pplx.app" target="_blank" rel="noopener">
+            <div class="card-tag mono">decision tool</div>
+            <h3 class="card-title">PV Housing Tour Guide</h3>
+            <p class="card-desc">Furnished-housing ranking app built while I was searching. Four candidate archetypes, reweightable scoring, AI Q&amp;A, owner-only saves. Walked the tour with a plan; ended up choosing Paladia.</p>
+            <div class="card-stats mono">
+              <span><span class="mono-dim">stack</span> pplx.app + Supabase</span>
+              <span><span class="mono-dim">built</span> in a day</span>
+            </div>
+            <div class="card-meta">
+              <span class="pill">Live</span>
+              <span class="mono-dim">pv-housing-tour-guide.pplx.app →</span>
+            </div>
+          </a>
+
+          <a class="card" href="https://paladia-417.vercel.app" target="_blank" rel="noopener">
+            <div class="card-tag mono">delegated ops</div>
+            <h3 class="card-title">Paladia 417</h3>
+            <p class="card-desc">Move-in and furnishing dashboard for my Playa Vista apartment. Runs a delegated furnishing workflow with role-gated access — a private ops app, not a public site.</p>
+            <div class="card-stats mono">
+              <span><span class="mono-dim">stack</span> React + Vercel</span>
+              <span><span class="mono-dim">built</span> two afternoons</span>
+            </div>
+            <div class="card-meta">
+              <span class="pill">Live · gated</span>
+              <span class="mono-dim">paladia-417.vercel.app →</span>
+            </div>
+          </a>
+
+          <a class="card" href="#contact">
+            <div class="card-tag mono">private · executive search</div>
+            <h3 class="card-title">FastBilly Career</h3>
+            <p class="card-desc">A private, AI-powered job-search operating system — Career Passport, explainable prioritization, warm-path detection, approval gates. Built around my own search first, then productized for other candidates.</p>
+            <div class="card-stats mono">
+              <span><span class="mono-dim">stack</span> React + Supabase + Vercel</span>
+              <span><span class="mono-dim">status</span> in build</span>
+            </div>
+            <div class="card-meta">
+              <span class="pill pill-soft">Coming soon</span>
+              <span class="mono-dim">by invite →</span>
+            </div>
+          </a>
+
+          <a class="card" href="https://gamma.app/" target="_blank" rel="noopener">
+            <div class="card-tag mono">decks &amp; briefs</div>
+            <h3 class="card-title">Gamma library</h3>
+            <p class="card-desc">Growth strategy, retention systems, and diligence decks I've written on Gamma — used for advisory intros, exec briefs, and diagnostic readouts. Selected decks shared on request.</p>
+            <div class="card-stats mono">
+              <span><span class="mono-dim">tool</span> gamma.app</span>
+              <span><span class="mono-dim">access</span> on request</span>
+            </div>
+            <div class="card-meta">
+              <span class="pill pill-soft">Selected</span>
+              <span class="mono-dim">gamma.app →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= 10-HOUR ENGAGEMENT ========================= -->
+    <section id="engage" class="section section-alt">
+      <div class="wrap engage-inner">
+        <div class="engage-left">
+          <div class="eyebrow">THE 10-HOUR ENGAGEMENT</div>
+          <h2 class="section-title">A fixed-scope diagnostic for founders and investors.</h2>
+          <p class="section-lede">
+            I run 10-hour retention, growth, and diligence diagnostics for consumer
+            software and DTC brands — no fee for the first pass, no commercial teaser
+            attached. You get evidence, a prioritized diagnosis, and a real recommendation.
+            Not a pitch deck.
+          </p>
+
+          <ul class="check-list">
+            <li><span class="check">✓</span> <strong>Eight-workstream diagnosis</strong> — acquisition quality, early behavior, lifecycle, transactional, account &amp; subscription, save motions, data, involuntary churn.</li>
+            <li><span class="check">✓</span> <strong>Artifacts, not chat.</strong> Raw pulls in the project, one durable analysis per swimlane, a hypothesis index with evidence.</li>
+            <li><span class="check">✓</span> <strong>Independent attribution guardrail.</strong> Platform self-attribution doesn't count on its own; findings get corroborated.</li>
+            <li><span class="check">✓</span> <strong>Evidence can reject the story.</strong> Priors get overturned when the data says so — that's the whole point.</li>
+          </ul>
+
+          <div class="engage-ctas">
+            <a class="btn btn-primary" href="mailto:billy@fastbilly.com?subject=10-hour%20engagement">Ask about the 10-hour</a>
+            <a class="btn btn-ghost" href="#contact">Other ways to reach me</a>
+          </div>
+        </div>
+
+        <aside class="engage-right">
+          <div class="mono-dim mono">SAMPLE READOUT</div>
+          <div class="readout">
+            <div class="readout-head">
+              <div class="readout-title">Retention &amp; LTV Diagnostic — [Redacted Brand]</div>
+              <div class="mono-dim mono readout-meta">10-hour engagement · Ten workstreams</div>
+            </div>
+            <div class="readout-row">
+              <span class="readout-label mono">HYPOTHESIS</span>
+              <span class="readout-strike">Meta destabilization drove revenue decline</span>
+              <span class="readout-badge bad">Rejected</span>
+            </div>
+            <div class="readout-row">
+              <span class="readout-label mono">FINDING</span>
+              <span>Post-rebrand paid efficiency <em>improved</em> at lower spend</span>
+              <span class="readout-badge good">Evidenced</span>
+            </div>
+            <div class="readout-row">
+              <span class="readout-label mono">DIAGNOSIS</span>
+              <span>Cutover in subscription attach + Month-1 retention</span>
+              <span class="readout-badge">Working</span>
+            </div>
+            <div class="readout-row">
+              <span class="readout-label mono">NEXT</span>
+              <span>Validate lifecycle w/ Shopify last-click; operator Qs on cutover</span>
+              <span class="readout-badge open">Open</span>
+            </div>
+            <div class="readout-foot mono-dim mono">
+              A redacted template — real work products stay confidential.
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ========================= WHERE I'LL BE ========================= -->
+    <section id="events" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">WHERE I'LL BE</div>
+          <h2 class="section-title">Come say hi.</h2>
+          <p class="section-lede">
+            A short list of what's on the calendar. If you'll be at any of these, ping me.
+          </p>
+        </div>
+
+        <ul class="event-list">
+
+          <li class="event">
+            <div class="event-date">
+              <span class="event-month mono">SEP</span>
+              <span class="event-day">17</span>
+            </div>
+            <div class="event-body">
+              <div class="event-badge mono">SPEAKING</div>
+              <div class="event-title">Ecom North · LA Summit</div>
+              <div class="event-meta mono-dim mono">City Market Social House · Los Angeles · Thu</div>
+              <p class="event-desc">Application-only summit for 6–7-figure+ DTC founders and operators. Retention, CAC/LTV, and the operating frameworks behind scaling in 2026.</p>
+            </div>
+            <a class="event-link mono" href="https://luma.com/6xuvytne" target="_blank" rel="noopener">Details ↗</a>
+          </li>
+
+          <li class="event">
+            <div class="event-date">
+              <span class="event-month mono">SEP</span>
+              <span class="event-day">22</span>
+              <span class="event-day-range mono">–24</span>
+            </div>
+            <div class="event-body">
+              <div class="event-badge mono">ATTENDING</div>
+              <div class="event-title">RetailClub AI Festival</div>
+              <div class="event-meta mono-dim mono">Beachside · Huntington Beach · Tue–Thu</div>
+              <p class="event-desc">All-outdoor, beachside retail event from the Shoptalk / Groceryshop founders. Peer-to-peer working sessions on retail in an AI-first world.</p>
+            </div>
+            <a class="event-link mono" href="https://retailclub.com/" target="_blank" rel="noopener">Details ↗</a>
+          </li>
+
+          <li class="event">
+            <div class="event-date">
+              <span class="event-month mono">SEP</span>
+              <span class="event-day">23</span>
+            </div>
+            <div class="event-body">
+              <div class="event-badge mono">DINNER</div>
+              <div class="event-title">Golden Hour Dinner</div>
+              <div class="event-meta mono-dim mono">Brands-only · Huntington Beach · Wed</div>
+              <p class="event-desc">A small dinner for retail and commerce operators — the conversations that don't happen on a conference floor. Hosted by Wildcard, Hue, and Gigit AI.</p>
+            </div>
+            <a class="event-link mono" href="https://luma.com/ufj6bq1n" target="_blank" rel="noopener">Details ↗</a>
+          </li>
+
+          <li class="event">
+            <div class="event-date">
+              <span class="event-month mono">OCT</span>
+              <span class="event-day">—</span>
+            </div>
+            <div class="event-body">
+              <div class="event-badge mono">EMCEEING</div>
+              <div class="event-title">Anaheim event · TBA</div>
+              <div class="event-meta mono-dim mono">Anaheim · October · date to come</div>
+              <p class="event-desc">Emceeing a full-day operator event in Anaheim this October. Details land here as soon as they're locked.</p>
+            </div>
+            <span class="event-link mono mono-dim">Details soon</span>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================= ABOUT / BIO ========================= -->
+    <section id="about" class="section section-alt">
+      <div class="wrap about-grid">
+        <div>
+          <div class="eyebrow">BONA FIDES</div>
+          <h2 class="section-title">Twenty years turning consumer businesses into recurring-revenue machines.</h2>
+          <p class="section-lede">
+            I've operated at both ends of the funnel — brand and paid acquisition on one
+            side, retention and lifecycle on the other — and I've been the person the deal
+            memo lands on before either.
+          </p>
+        </div>
+        <div class="bio-facts">
+          <div class="fact">
+            <div class="fact-label mono">MOST RECENTLY</div>
+            <div class="fact-body">SVP of Growth at <strong>RealDefense</strong> — a 20-person org across ecommerce, retention, lifecycle, payments, and traffic quality for a portfolio of consumer software brands.</div>
+          </div>
+          <div class="fact">
+            <div class="fact-label mono">BEFORE THAT</div>
+            <div class="fact-body">Retention and ecommerce leadership at <strong>Dollar Shave Club</strong>, joined post-diligence with Nexus Capital.</div>
+          </div>
+          <div class="fact">
+            <div class="fact-label mono">AND BEFORE THAT</div>
+            <div class="fact-body">Consumer-business diligence on <strong>TPG's acquisition of McAfee</strong>, then an operating seat inside the business. Advisor and consultant in between.</div>
+          </div>
+          <div class="fact">
+            <div class="fact-label mono">EARLY DAYS</div>
+            <div class="fact-body"><strong>Googler #220.</strong> Interviewed by Larry Page. Mental problem-solving at a whiteboard, then five years of a small company becoming a big one.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap chips-wrap">
+        <div class="mono-dim mono chips-label">WHAT I'M USUALLY DOING</div>
+        <div class="chips">
+          <span class="chip">Retention &amp; LTV diagnostics</span>
+          <span class="chip">Ecommerce &amp; subscription growth</span>
+          <span class="chip">Lifecycle &amp; CRM (Klaviyo, Braze)</span>
+          <span class="chip">Payments &amp; authorization</span>
+          <span class="chip">Ops design &amp; intake</span>
+          <span class="chip">Consumer diligence</span>
+          <span class="chip">AI-assisted rapid prototyping</span>
+          <span class="chip">Founder-facing executive briefs</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= WRITING ========================= -->
+    <section id="writing" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">WRITING &amp; NOTES</div>
+          <h2 class="section-title">Short pieces on how I actually work.</h2>
+          <p class="section-lede">
+            Working notes, not think pieces. Most started as a real project and got
+            distilled into something I could point at.
+          </p>
+        </div>
+
+        <ul class="writing-list">
+          <li class="writing-item">
+            <a href="https://company-of-one.pplx.app" target="_blank" rel="noopener">
+              <div class="writing-meta mono"><span>ESSAY</span><span>·</span><span>Live</span></div>
+              <div class="writing-title">Vibe coding is a prompt. This is a company of one.</div>
+              <div class="writing-desc">The stack, the costs, and the workflow behind shipping real software solo.</div>
+            </a>
+          </li>
+          <li class="writing-item">
+            <a href="#apps">
+              <div class="writing-meta mono"><span>CASE</span><span>·</span><span>YE Chicago</span></div>
+              <div class="writing-title">A 14-person concert weekend, built as an app.</div>
+              <div class="writing-desc">How a private, phone-first trip companion beats a spreadsheet and a group chat every time — and what the seven tabs actually do.</div>
+            </a>
+          </li>
+          <li class="writing-item">
+            <a href="#engage">
+              <div class="writing-meta mono"><span>METHOD</span><span>·</span><span>Retention</span></div>
+              <div class="writing-title">Eight workstreams for a real retention diagnosis.</div>
+              <div class="writing-desc">Acquisition quality, early behavior, lifecycle, transactional, account &amp; subscription, save motions, data, and involuntary churn. Use the whole map or the diagnosis is wrong.</div>
+            </a>
+          </li>
+          <li class="writing-item">
+            <a href="#apps">
+              <div class="writing-meta mono"><span>PRINCIPLE</span><span>·</span><span>Publishing</span></div>
+              <div class="writing-title">Public links over static handoffs.</div>
+              <div class="writing-desc">Interactive apps are the delivery mechanism for shared decisions. PDFs are for the formal moment.</div>
+            </a>
+          </li>
+        </ul>
+
+        <div class="writing-cta mono-dim mono">
+          More is coming. If you want to be told when, <a href="#contact">say so.</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= CONTACT ========================= -->
+    <section id="contact" class="section section-alt contact">
+      <div class="wrap contact-inner">
+        <div>
+          <div class="eyebrow">GET IN TOUCH</div>
+          <h2 class="section-title">Best way in: email.</h2>
+          <p class="section-lede">
+            Founder, investor, operator, or just curious — pick the one that fits and send
+            a short note. I read everything.
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary btn-lg" href="mailto:billy@fastbilly.com">billy@fastbilly.com</a>
+          <div class="contact-links mono">
+            <a href="https://www.linkedin.com/in/billhudak" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/fastbilly" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://gamma.app/" target="_blank" rel="noopener">Gamma ↗</a>
+            <a href="https://company-of-one.pplx.app" target="_blank" rel="noopener">Company of One ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="brand small">
+        <svg class="brand-mark sm" viewBox="0 0 40 32" aria-hidden="true">
+          <path d="M2 28 L9 10 L14 22 L20 6 L26 22 L31 10 L38 28 Z"
+                fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+        <span>FastBilly</span>
+      </div>
+      <div class="mono-dim mono footer-meta">
+        © <span id="year"></span> Bill Hudak · a company of one · built in an afternoon
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
