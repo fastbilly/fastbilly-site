@@ -1,7 +1,11 @@
 # FastBilly
 
 Public hub for [fastbilly.com](https://fastbilly.com) — Bill Hudak's operator persona.
-Static site (HTML/CSS/JS), no build step. Deploy directly to Vercel.
+
+The repo now hosts two things behind one Vercel deploy:
+
+1. **Root marketing hub** — the original static HTML/CSS/JS at the repo root (`index.html`, `styles.css`, `app.js`). Still no framework, still hand-authored.
+2. **`/career`** — the FastBilly Career SPA (Vite + React + TypeScript) that lives in [`career/`](./career). Built once and served as a subpath of fastbilly.com.
 
 ## Sections
 
@@ -23,14 +27,42 @@ Reuses the FastBilly tokens from Company of One:
 
 ## Local
 
-Any static server works, e.g.:
+Static root only (fast iteration on the marketing hub):
 
 ```bash
 python3 -m http.server 8000
 ```
 
+Career SPA in isolation:
+
+```bash
+npm run dev:career
+```
+
+Full production build (root + Career, matches what Vercel runs):
+
+```bash
+npm run build
+npx serve dist          # or any static file server pointed at dist/
+```
+
 ## Deploy
 
-- Framework preset: Other
-- Output directory: `.` (root)
-- Build command: none
+Single Vercel project (`fastbilly-site`, aliased to `fastbilly.com`).
+
+- Framework preset: **Other**
+- Build command: `npm run build`
+- Output directory: `dist`
+- Install command: default (`npm install`)
+
+The build orchestrator in `scripts/assemble.mjs` copies the static root files into
+`dist/` and drops the Career Vite build into `dist/career/`. `vercel.json` adds a
+SPA rewrite so any `/career/*` deep-link falls through to `career/index.html`.
+
+## Career env vars (set on the `fastbilly-site` Vercel project)
+
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_PUBLISHABLE_KEY`
+
+Both are baked into the Career bundle at build time — set them in the same
+Vercel project that deploys fastbilly.com.
