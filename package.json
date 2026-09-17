@@ -1,0 +1,10 @@
+{
+  "name": "fastbilly-site-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "fastbilly.com static hub + Career subapp merged into a single Vercel deploy.",
+  "scripts": {
+    "build": "npm --prefix career ci && npm --prefix career run build && node scripts/assemble.mjs",
+    "dev:career": "npm --prefix career run dev"
+  }
+}
