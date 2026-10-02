@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<meta name="theme-color" content="#211E24" />
+<title>Ouroboros · Private brief</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M24.5 9.2A11 11 0 1 0 27 16' fill='none' stroke='%23FF6BD8' stroke-width='3.2' stroke-linecap='round'/><path d='M22 5.5l4.6 3.2-4.9 2.6z' fill='%234FD1C5'/></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --magenta:#FF6BD8; --teal:#4FD1C5;
+    --bg:#211E24; --elev:#2A2630; --elev2:#332E3B;
+    --text:#FBF3FA; --body:#E0D6DE; --muted:#9E96A5;
+    --line:rgba(251,243,250,.10); --line2:rgba(251,243,250,.18);
+    --card:rgba(255,255,255,.03);
+    --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --serif:"Instrument Serif","Times New Roman",serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--body);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;min-height:100dvh}
+  body::before{content:"";position:fixed;inset:-20% -10% auto -10%;height:70vh;pointer-events:none;z-index:0;
+    background:radial-gradient(60% 60% at 25% 20%,rgba(255,107,216,.12),transparent 60%),radial-gradient(50% 50% at 85% 10%,rgba(79,209,197,.09),transparent 65%)}
+  .wrap{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:28px 22px 64px;padding-left:max(22px,env(safe-area-inset-left));padding-right:max(22px,env(safe-area-inset-right))}
+  .mark{color:var(--text);display:inline-flex}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  button{font:inherit;cursor:pointer}
+  .btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--text);font-size:14px;font-weight:500;transition:background .15s,border-color .15s}
+  .btn:hover{background:rgba(255,255,255,.06);border-color:rgba(251,243,250,.3)}
+  .btn:focus-visible,input:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+  .btn.primary{background:var(--magenta);border-color:var(--magenta);color:#211E24;font-weight:600}
+  .btn.primary:hover{background:#ff85df}
+  .btn[disabled]{opacity:.6;cursor:default}
+
+  /* Gate */
+  #gate{display:none;min-height:100vh;min-height:100dvh;align-items:center;justify-content:center;padding:24px}
+  .gate-card{position:relative;z-index:1;width:100%;max-width:400px;background:var(--elev);border:1px solid var(--line);border-radius:20px;padding:36px 28px 30px;text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+  .gate-card h1{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.05;color:var(--text);margin:18px 0 6px}
+  .gate-card p{margin:0 0 22px;color:var(--muted);font-size:14.5px}
+  .pin{width:100%;height:56px;border-radius:12px;border:1px solid var(--line2);background:var(--bg);color:var(--text);font-family:var(--mono);font-size:24px;letter-spacing:.5em;text-align:center;padding-left:.5em}
+  .pin::placeholder{color:#5d5664;letter-spacing:.5em}
+  .gate-card .btn{width:100%;justify-content:center;margin-top:12px;height:52px}
+  .err{min-height:22px;margin-top:12px;font-size:13.5px;color:#ff9fb0}
+  .fine{margin-top:18px;font-size:12px;color:var(--muted)}
+
+  /* Brief */
+  #brief{display:none}
+  .top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:12px;color:var(--text);font-weight:600;letter-spacing:.01em}
+  .actions{display:flex;gap:8px;flex-wrap:wrap}
+  .hero{padding:44px 0 30px}
+  .hero h1{font-family:var(--serif);font-weight:400;color:var(--text);font-size:clamp(46px,8vw,84px);line-height:.98;margin:12px 0 14px;letter-spacing:-.01em}
+  .hero .tag{font-family:var(--serif);font-style:italic;font-size:clamp(22px,3.4vw,32px);line-height:1.2;color:var(--body);margin:0;max-width:32ch}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .chip{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;padding:6px 10px;border-radius:999px;border:1px solid var(--line2);color:var(--muted)}
+  .chip.hot{color:var(--magenta);border-color:rgba(255,107,216,.45)}
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .sec{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px 24px 18px;min-width:0}
+  .sec.full{grid-column:1/-1}
+  .sec h2{display:flex;align-items:baseline;gap:12px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin:0 0 14px}
+  .sec h2 .n{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+  .sec p{margin:0 0 12px}
+  .sec strong{color:var(--text);font-weight:600}
+  .sec ul,.sec ol{margin:0 0 12px;padding-left:20px}
+  .sec li{margin:0 0 8px}
+  .sec li::marker{color:var(--magenta)}
+  .sec.lead p:first-of-type{font-family:var(--serif);font-size:clamp(24px,3.2vw,31px);line-height:1.22;color:var(--text);margin-bottom:16px}
+  .sec.lead p:first-of-type strong{font-weight:400}
+  .tbl{overflow-x:auto;margin:0 -4px 8px}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th{text-align:left;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--line2)}
+  td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  td:first-child{white-space:nowrap;width:1%;padding-right:22px}
+  a{color:var(--magenta)}
+  .foot{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+  .skeleton{height:120px;border-radius:var(--r);background:linear-gradient(90deg,var(--card),rgba(255,255,255,.06),var(--card));background-size:200% 100%;animation:sh 1.4s infinite}
+  @keyframes sh{to{background-position:-200% 0}}
+  @media (max-width:760px){
+    .grid{grid-template-columns:1fr}
+    .sec{padding:20px 18px 14px}
+    td:first-child{white-space:normal;width:auto;padding-right:12px}
+    table,thead,tbody,tr,td{display:block}
+    thead{display:none}
+    tr{padding:12px 0;border-bottom:1px solid var(--line)}
+    tr:last-child{border-bottom:0}
+    td{border:0;padding:2px 0}
+    td:first-child{color:var(--text)}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  @media print{
+    @page{margin:10mm}
+    body{background:#fff;color:#222;font-size:8.6pt;line-height:1.38}
+    .sec li{margin:0 0 3px}.sec p{margin:0 0 6px}.sec ul,.sec ol{margin:0 0 6px}
+    td{padding:4px 8px}th{padding:4px 8px}table{font-size:8.6pt}
+    .sec h2{margin:0 0 6px;font-size:9pt}
+    .chips{margin-top:8px}.top{padding-bottom:8px}
+    body::before,.actions,#gate{display:none!important}
+    .wrap{padding:0;max-width:none}
+    .hero{padding:14px 0 12px}
+    .hero h1{color:#111;font-size:30pt;margin:4px 0 4px}
+    .hero .tag{color:#333;font-size:13pt;max-width:none}
+    .brand,.sec strong,.sec.lead p:first-of-type,td:first-child{color:#111}
+    .chip{color:#555;border-color:#ccc}.chip.hot{color:#b0207f;border-color:#e6a4d0}
+    .sec{background:none;border:1px solid #ddd;break-inside:avoid;padding:8px 12px 4px}
+    .sec h2{color:#127a70}
+    .sec.lead p:first-of-type{font-size:12.5pt;margin-bottom:6px}
+    .grid{gap:8px}
+    th{color:#666;border-color:#ccc}td{border-color:#eee}
+    .top,.foot{border-color:#ddd;color:#666}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 40 40">
+    <!-- Ouroboros: a ring whose head meets its own tail -->
+    <path d="M30.6 11.4A13.5 13.5 0 1 0 33.5 20" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M27.2 6.6l6.2 4.1-6.5 3.4z" fill="#FF6BD8"/>
+    <circle cx="20" cy="20" r="3" fill="#4FD1C5"/>
+  </symbol>
+</svg>
+
+<section id="gate" aria-labelledby="gate-title">
+  <form class="gate-card" id="gate-form" autocomplete="off">
+    <span class="mark"><svg width="56" height="56" aria-label="Ouroboros logo" role="img"><use href="#logo"/></svg></span>
+    <h1 id="gate-title">Ouroboros</h1>
+    <p>Private brief. Enter the PIN Bill shared with you.</p>
+    <label for="pin" class="eyebrow" style="display:block;margin-bottom:8px;text-align:left">PIN</label>
+    <input id="pin" class="pin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="12" placeholder="••••••" autocomplete="one-time-code" required />
+    <button class="btn primary" id="unlock" type="submit">Open brief</button>
+    <div class="err" id="err" role="alert" aria-live="polite"></div>
+    <div class="fine">Confidential. Please don't forward the link or PIN.</div>
+  </form>
+</section>
+
+<main id="brief" class="wrap" aria-live="polite">
+  <header class="top">
+    <div class="brand"><svg width="30" height="30" aria-label="Ouroboros logo" role="img"><use href="#logo"/></svg><span>Ouroboros</span></div>
+    <div class="actions">
+      <button class="btn" id="print" type="button">Save as PDF</button>
+      <button class="btn" id="lock" type="button">Lock</button>
+    </div>
+  </header>
+  <div class="hero">
+    <div class="eyebrow" id="for"></div>
+    <h1 id="title">Ouroboros</h1>
+    <p class="tag" id="tagline"></p>
+    <div class="chips" id="chips"></div>
+  </div>
+  <div class="grid" id="content"><div class="skeleton sec full"></div><div class="skeleton sec"></div><div class="skeleton sec"></div></div>
+  <footer class="foot"><span id="foot-l"></span><span id="foot-r"></span></footer>
+</main>
+
+<script>
+(() => {
+  const base = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
+  const api = p => '/api/ouroboros/' + p;
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  function showGate(msg) {
+    $('brief').style.display = 'none';
+    $('gate').style.display = 'flex';
+    $('err').textContent = msg || '';
+    setTimeout(() => $('pin').focus(), 50);
+  }
+
+  function render(d) {
+    const m = d.meta || {};
+    document.title = (m.title || 'Ouroboros') + ' · Private brief';
+    $('title').textContent = m.title || 'Ouroboros';
+    $('tagline').textContent = m.tagline || '';
+    $('for').textContent = d.viewer ? 'Prepared for ' + d.viewer : '';
+    $('chips').innerHTML = [
+      m.status && `<span class="chip hot">${esc(m.status)}</span>`,
+      m.version && `<span class="chip">${esc(m.version)}</span>`,
+      m.updated && `<span class="chip">Updated ${esc(m.updated)}</span>`
+    ].filter(Boolean).join('');
+    $('foot-l').textContent = (m.author ? m.author + ' · ' : '') + (m.contact || '');
+    $('foot-r').textContent = 'Confidential. Not for distribution.';
+
+    const tmp = document.createElement('div');
+    tmp.innerHTML = d.html;
+    const out = document.createElement('div');
+    let sec = null, n = 0;
+    [...tmp.childNodes].forEach(node => {
+      if (node.nodeName === 'H2') {
+        n++;
+        sec = document.createElement('section');
+        sec.className = 'sec';
+        const h = document.createElement('h2');
+        h.innerHTML = `<span class="n">${String(n).padStart(2,'0')}</span><span>${esc(node.textContent)}</span>`;
+        sec.appendChild(h);
+        out.appendChild(sec);
+      } else if (sec) {
+        if (node.nodeName === 'TABLE') {
+          const w = document.createElement('div'); w.className = 'tbl'; w.appendChild(node); sec.appendChild(w);
+          sec.classList.add('full');
+        } else sec.appendChild(node);
+      }
+    });
+    const secs = out.querySelectorAll('.sec');
+    if (secs[0]) secs[0].classList.add('full', 'lead');
+    // keep the 2-col grid even: if an odd half-width section is left before a full-width one, stretch it
+    let run = [];
+    secs.forEach((s, i) => {
+      if (s.classList.contains('full')) { if (run.length % 2) run[run.length-1].classList.add('full'); run = []; }
+      else run.push(s);
+      if (i === secs.length - 1 && run.length % 2) run[run.length-1].classList.add('full');
+    });
+    out.querySelectorAll('a').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
+    $('content').replaceChildren(...out.childNodes);
+    $('gate').style.display = 'none';
+    $('brief').style.display = 'block';
+  }
+
+  async function load() {
+    try {
+      const r = await fetch(api('brief'), { credentials: 'same-origin', cache: 'no-store' });
+      if (r.status === 401) return showGate();
+      if (!r.ok) throw new Error();
+      render(await r.json());
+    } catch { showGate('Something went wrong loading the brief. Try again.'); }
+  }
+
+  $('gate-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const pin = $('pin').value.trim();
+    if (!pin) return;
+    const b = $('unlock'); b.disabled = true; b.textContent = 'Checking…'; $('err').textContent = '';
+    try {
+      const r = await fetch(api('unlock'), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ pin }), credentials: 'same-origin' });
+      if (r.ok) { $('pin').value = ''; await load(); }
+      else { $('err').textContent = "That PIN didn't work. Check it and try again."; $('pin').select(); }
+    } catch { $('err').textContent = 'Connection problem. Try again.'; }
+    b.disabled = false; b.textContent = 'Open brief';
+  });
+  $('print').addEventListener('click', () => window.print());
+  $('lock').addEventListener('click', async () => {
+    await fetch(api('logout'), { method: 'POST', credentials: 'same-origin' }).catch(() => {});
+    showGate();
+  });
+  load();
+})();
+</script>
+</body>
+</html>
