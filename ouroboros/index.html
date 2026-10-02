@@ -80,6 +80,14 @@
   td:first-child{white-space:nowrap;width:1%;padding-right:22px}
   a{color:var(--magenta)}
   .foot{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+  .foot-wrap{margin-top:28px}
+  .sources{padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+  .sources h3{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .sources ol{margin:0;padding-left:20px;columns:2;column-gap:32px}
+  .sources li{margin:0 0 6px;break-inside:avoid}
+  .sources a{color:var(--muted);text-decoration:underline;text-decoration-color:var(--line2)}
+  .sources a:hover{color:var(--magenta)}
+  @media (max-width:760px){.sources ol{columns:1}}
   .skeleton{height:120px;border-radius:var(--r);background:linear-gradient(90deg,var(--card),rgba(255,255,255,.06),var(--card));background-size:200% 100%;animation:sh 1.4s infinite}
   @keyframes sh{to{background-position:-200% 0}}
   @media (max-width:760px){
@@ -113,7 +121,7 @@
     .sec.lead p:first-of-type{font-size:12.5pt;margin-bottom:6px}
     .grid{gap:8px}
     th{color:#666;border-color:#ccc}td{border-color:#eee}
-    .top,.foot{border-color:#ddd;color:#666}
+    .top,.foot,.sources{border-color:#ddd;color:#555}.sources a{color:#555}.sources{font-size:7.5pt}
   }
 </style>
 </head>
@@ -156,7 +164,7 @@
     <div class="chips" id="chips"></div>
   </div>
   <div class="grid" id="content"><div class="skeleton sec full"></div><div class="skeleton sec"></div><div class="skeleton sec"></div></div>
-  <footer class="foot"><span id="foot-l"></span><span id="foot-r"></span></footer>
+  <footer class="foot-wrap"><div class="sources" id="sources" hidden></div><div class="foot"><span id="foot-l"></span><span id="foot-r"></span></div></footer>
 </main>
 
 <script>
@@ -190,8 +198,14 @@
     const tmp = document.createElement('div');
     tmp.innerHTML = d.html;
     const out = document.createElement('div');
-    let sec = null, n = 0;
+    let sec = null, n = 0, srcBox = null;
     [...tmp.childNodes].forEach(node => {
+      if (node.nodeName === 'H2' && /^sources$/i.test(node.textContent.trim())) {
+        sec = document.createElement('div'); sec.dataset.sources = '1';
+        sec.innerHTML = '<h3>Sources</h3>';
+        srcBox = sec;
+        return;
+      }
       if (node.nodeName === 'H2') {
         n++;
         sec = document.createElement('section');
@@ -218,6 +232,10 @@
     });
     out.querySelectorAll('a').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
     $('content').replaceChildren(...out.childNodes);
+    if (srcBox) {
+      srcBox.querySelectorAll('a').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
+      $('sources').replaceChildren(...srcBox.childNodes); $('sources').hidden = false;
+    } else { $('sources').hidden = true; }
     $('gate').style.display = 'none';
     $('brief').style.display = 'block';
   }
