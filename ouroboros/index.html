@@ -84,6 +84,11 @@
   .more-btn{min-height:52px;padding:0 26px;font-size:15px;border-color:rgba(255,107,216,.5);color:var(--text)}
   .more-btn .mono-n{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-left:4px}
   .grid[hidden]{display:none}
+  .part{grid-column:1/-1;padding:34px 4px 6px;border-top:1px solid var(--line2);margin-top:14px}
+  .part:first-child{margin-top:0;border-top:0;padding-top:8px}
+  .part-k{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--magenta)}
+  .part-t{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,40px);line-height:1.08;color:var(--text);margin:8px 0 6px}
+  .part p{margin:0;color:var(--muted);font-size:15px}
   .foot-wrap{margin-top:28px}
   .sources{padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
   .sources h3{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
@@ -124,6 +129,7 @@
     .brand,.sec strong,.sec.lead p:first-of-type,td:first-child{color:#111}
     .chip{color:#555;border-color:#ccc}.chip.hot{color:#b0207f;border-color:#e6a4d0}
     .sec{background:none;border:1px solid #ddd;break-inside:avoid;padding:8px 12px 4px}
+    .part{break-after:avoid;padding:14px 0 4px;border-color:#ccc}.part-t{color:#111;font-size:18pt}.part-k{color:#b0207f}.part p{color:#555}
     .sec h2{color:#127a70}
     .sec.lead p:first-of-type{font-size:12.5pt;margin-bottom:6px}
     .grid{gap:8px}
@@ -232,6 +238,14 @@
       if (t && /^read the full brief$/i.test(t)) {
         target = 'full'; n = 0; sec = null; toggleLabel = t; return;
       }
+      if (t && /^part\s+\d/i.test(t)) {
+        sec = document.createElement('div');
+        sec.className = 'part';
+        const [lab, ...rest] = t.split('·');
+        sec.innerHTML = `<div class="part-k">${esc(lab.trim())}</div><h2 class="part-t">${esc(rest.join('·').trim() || lab.trim())}</h2>`;
+        groups[target].appendChild(sec);
+        return;
+      }
       if (t) {
         n++;
         sec = document.createElement('section');
@@ -249,13 +263,14 @@
       }
     });
     const even = box => {
-      const secs = box.querySelectorAll('.sec');
-      if (secs[0]) secs[0].classList.add('full', 'lead');
+      const first = box.querySelector('.sec');
+      if (first) first.classList.add('full', 'lead');
+      const items = [...box.children].filter(e => e.classList.contains('sec') || e.classList.contains('part'));
       let run = [];
-      secs.forEach((s, i) => {
-        if (s.classList.contains('full')) { if (run.length % 2) run[run.length-1].classList.add('full'); run = []; }
+      items.forEach((s, i) => {
+        if (s.classList.contains('full') || s.classList.contains('part')) { if (run.length % 2) run[run.length-1].classList.add('full'); run = []; }
         else run.push(s);
-        if (i === secs.length - 1 && run.length % 2) run[run.length-1].classList.add('full');
+        if (i === items.length - 1 && run.length % 2) run[run.length-1].classList.add('full');
       });
       box.querySelectorAll('a').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
     };
