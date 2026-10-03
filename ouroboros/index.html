@@ -84,11 +84,14 @@
   .more-btn{min-height:52px;padding:0 26px;font-size:15px;border-color:rgba(255,107,216,.5);color:var(--text)}
   .more-btn .mono-n{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-left:4px}
   .grid[hidden]{display:none}
+  table.even2 td:first-child{width:48%}
   .part{grid-column:1/-1;padding:34px 4px 6px;border-top:1px solid var(--line2);margin-top:14px}
   .part:first-child{margin-top:0;border-top:0;padding-top:8px}
   .part-k{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--magenta)}
   .part-t{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,40px);line-height:1.08;color:var(--text);margin:8px 0 6px}
-  .part p{margin:0;color:var(--muted);font-size:15px}
+  .part p{margin:0;color:var(--muted);font-size:15px;max-width:780px}
+  .part p + p{margin-top:10px;color:var(--body)}
+  .part p strong{color:var(--text)}
   .foot-wrap{margin-top:28px}
   .sources{padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
   .sources h3{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
@@ -111,6 +114,7 @@
     td:first-child{color:var(--text);font-weight:600;margin-bottom:4px}
     td:not(:first-child)::before{content:attr(data-label);display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
     td.empty{display:none}
+    table.even2 td:first-child{width:auto}
     .tbl{margin:0 0 8px}
   }
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -238,7 +242,7 @@
       if (t && /^read the full brief$/i.test(t)) {
         target = 'full'; n = 0; sec = null; toggleLabel = t; return;
       }
-      if (t && /^part\s+\d/i.test(t)) {
+      if (t && /^(part\s+\d|appendix)/i.test(t)) {
         sec = document.createElement('div');
         sec.className = 'part';
         const [lab, ...rest] = t.split('·');
@@ -257,6 +261,7 @@
       } else if (sec) {
         if (node.nodeName === 'TABLE') {
           prep(node);
+          if (node.querySelectorAll('thead th').length === 2 && node.querySelector('td strong + *, td:first-child')?.textContent.length > 60) node.classList.add('even2');
           const w = document.createElement('div'); w.className = 'tbl'; w.appendChild(node); sec.appendChild(w);
           if (sec.parentNode !== srcBox) sec.classList.add('full');
         } else sec.appendChild(node);
