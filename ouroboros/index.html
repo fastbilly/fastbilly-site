@@ -80,6 +80,10 @@
   td:first-child{white-space:nowrap;width:1%;padding-right:22px}
   a{color:var(--magenta)}
   .foot{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+  .more{display:flex;justify-content:center;margin:28px 0 22px;scroll-margin-top:16px}
+  .more-btn{min-height:52px;padding:0 26px;font-size:15px;border-color:rgba(255,107,216,.5);color:var(--text)}
+  .more-btn .mono-n{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-left:4px}
+  .grid[hidden]{display:none}
   .foot-wrap{margin-top:28px}
   .sources{padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
   .sources h3{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
@@ -112,7 +116,7 @@
     td{padding:4px 8px}th{padding:4px 8px}table{font-size:8.6pt}
     .sec h2{margin:0 0 6px;font-size:9pt}
     .chips{margin-top:8px}.top{padding-bottom:8px}
-    body::before,.actions,#gate{display:none!important}
+    body::before,.actions,#gate,.more{display:none!important}
     .wrap{padding:0;max-width:none}
     .hero{padding:14px 0 12px}
     .hero h1{color:#111;font-size:30pt;margin:4px 0 4px}
@@ -167,6 +171,10 @@
     <div class="chips" id="chips"></div>
   </div>
   <div class="grid" id="content"><div class="skeleton sec full"></div><div class="skeleton sec"></div><div class="skeleton sec"></div></div>
+  <div class="more" id="more" hidden>
+    <button class="btn more-btn" id="more-btn" type="button" aria-controls="full" aria-expanded="false">Read the full brief</button>
+  </div>
+  <div class="grid" id="full" hidden></div>
   <footer class="foot-wrap"><div class="sources" id="sources" hidden></div><div class="foot"><span id="foot-l"></span><span id="foot-r"></span></div></footer>
 </main>
 
@@ -182,6 +190,13 @@
     $('gate').style.display = 'flex';
     $('err').textContent = msg || '';
     setTimeout(() => $('pin').focus(), 50);
+  }
+
+  function setFull(open, count) {
+    $('full').hidden = !open;
+    $('more-btn').setAttribute('aria-expanded', String(open));
+    $('more-btn').innerHTML = open ? 'Hide the full brief <span aria-hidden="true">↑</span>' : `Read the full brief <span class="mono-n">${count} sections</span> <span aria-hidden="true">↓</span>`;
+    document.body.classList.toggle('full-open', open);
   }
 
   function render(d) {
@@ -200,46 +215,65 @@
 
     const tmp = document.createElement('div');
     tmp.innerHTML = d.html;
-    const out = document.createElement('div');
-    let sec = null, n = 0, srcBox = null;
+    const groups = { summary: document.createElement('div'), full: document.createElement('div') };
+    let target = 'summary', sec = null, n = 0, srcBox = null, toggleLabel = null;
+    const prep = table => {
+      const heads = [...table.querySelectorAll('thead th')].map(th => th.textContent.trim());
+      table.querySelectorAll('tbody tr').forEach(tr => [...tr.children].forEach((td, k) => {
+        td.dataset.label = heads[k] || '';
+        if (!td.textContent.trim()) td.classList.add('empty');
+      }));
+    };
     [...tmp.childNodes].forEach(node => {
-      if (node.nodeName === 'H2' && /^sources$/i.test(node.textContent.trim())) {
-        sec = document.createElement('div'); sec.dataset.sources = '1';
-        sec.innerHTML = '<h3>Sources</h3>';
-        srcBox = sec;
-        return;
+      const t = node.nodeName === 'H2' ? node.textContent.trim() : '';
+      if (t && /^sources$/i.test(t)) {
+        sec = document.createElement('div'); sec.innerHTML = '<h3>Sources</h3>'; srcBox = sec; return;
       }
-      if (node.nodeName === 'H2') {
+      if (t && /^read the full brief$/i.test(t)) {
+        target = 'full'; n = 0; sec = null; toggleLabel = t; return;
+      }
+      if (t) {
         n++;
         sec = document.createElement('section');
         sec.className = 'sec';
         const h = document.createElement('h2');
-        h.innerHTML = `<span class="n">${String(n).padStart(2,'0')}</span><span>${esc(node.textContent)}</span>`;
+        h.innerHTML = `<span class="n">${String(n).padStart(2,'0')}</span><span>${esc(t)}</span>`;
         sec.appendChild(h);
-        out.appendChild(sec);
+        groups[target].appendChild(sec);
       } else if (sec) {
         if (node.nodeName === 'TABLE') {
-          const heads = [...node.querySelectorAll('thead th')].map(th => th.textContent.trim());
-          node.querySelectorAll('tbody tr').forEach(tr => [...tr.children].forEach((td, k) => {
-            td.dataset.label = heads[k] || '';
-            if (!td.textContent.trim()) td.classList.add('empty');
-          }));
+          prep(node);
           const w = document.createElement('div'); w.className = 'tbl'; w.appendChild(node); sec.appendChild(w);
-          sec.classList.add('full');
+          if (sec.parentNode !== srcBox) sec.classList.add('full');
         } else sec.appendChild(node);
       }
     });
-    const secs = out.querySelectorAll('.sec');
-    if (secs[0]) secs[0].classList.add('full', 'lead');
-    // keep the 2-col grid even: if an odd half-width section is left before a full-width one, stretch it
-    let run = [];
-    secs.forEach((s, i) => {
-      if (s.classList.contains('full')) { if (run.length % 2) run[run.length-1].classList.add('full'); run = []; }
-      else run.push(s);
-      if (i === secs.length - 1 && run.length % 2) run[run.length-1].classList.add('full');
-    });
-    out.querySelectorAll('a').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
-    $('content').replaceChildren(...out.childNodes);
+    const even = box => {
+      const secs = box.querySelectorAll('.sec');
+      if (secs[0]) secs[0].classList.add('full', 'lead');
+      let run = [];
+      secs.forEach((s, i) => {
+        if (s.classList.contains('full')) { if (run.length % 2) run[run.length-1].classList.add('full'); run = []; }
+        else run.push(s);
+        if (i === secs.length - 1 && run.length % 2) run[run.length-1].classList.add('full');
+      });
+      box.querySelectorAll('a').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
+    };
+    even(groups.summary); even(groups.full);
+    $('content').replaceChildren(...groups.summary.childNodes);
+    const fullCount = groups.full.querySelectorAll('.sec').length;
+    if (fullCount) {
+      $('full').replaceChildren(...groups.full.childNodes);
+      $('more').hidden = false;
+      const open = location.hash === '#full';
+      setFull(open, fullCount);
+      $('more-btn').onclick = () => {
+        const nowOpen = $('full').hidden;
+        setFull(nowOpen, fullCount);
+        history.replaceState(null, '', nowOpen ? '#full' : location.pathname);
+        if (nowOpen) $('more').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+    } else { $('more').hidden = true; $('full').hidden = true; }
     if (srcBox) {
       srcBox.querySelectorAll('a').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
       $('sources').replaceChildren(...srcBox.childNodes); $('sources').hidden = false;
