@@ -2,11 +2,12 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FastBilly — Bill Hudak · growth exec, AI-native tech stacker, consumer subscription expert</title>
-  <meta name="description" content="Bill Hudak — growth exec, AI-native tech stacker, consumer subscription expert. What I'm shipping, how I ship it, and how to work together." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>FastBilly — Bill Hudak · growth operator and company of one</title>
+  <meta name="description" content="Bill Hudak — growth operator, consumer subscription expert and a company of one. I advise brands with a context-driven playbook and build the apps they run on." />
   <meta name="theme-color" content="#211E24" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'><path d='M2 28 L9 10 L14 22 L20 6 L26 22 L31 10 L38 28 Z' fill='none' stroke='%23FF6BD8' stroke-width='3' stroke-linejoin='round' stroke-linecap='round'/></svg>" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
   <link rel="canonical" href="https://fastbilly.com/" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -14,16 +15,15 @@
 
   <meta property="og:site_name" content="FastBilly" />
   <meta property="og:title" content="FastBilly — Bill Hudak" />
-  <meta property="og:description" content="Growth exec. AI-native tech stacker. Consumer subscription expert. What I'm shipping, how I ship it, and how to work together." />
+  <meta property="og:description" content="Growth operator. Company of one. I advise brands with a context-driven playbook and build the apps they run on." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fastbilly.com/" />
   <meta property="og:image" content="https://fastbilly.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="FastBilly — Bill Hudak" />
-  <meta name="twitter:description" content="Growth exec. AI-native tech stacker. Consumer subscription expert." />
+  <meta name="twitter:description" content="Growth operator. Company of one." />
   <meta name="twitter:image" content="https://fastbilly.com/og-image.png" />
 
   <script type="application/ld+json">
@@ -35,7 +35,7 @@
         "@id": "https://fastbilly.com/#website",
         "url": "https://fastbilly.com/",
         "name": "FastBilly",
-        "description": "Bill Hudak — growth exec, AI-native tech stacker, consumer subscription expert.",
+        "description": "Bill Hudak — growth operator, consumer subscription expert and a company of one.",
         "publisher": { "@id": "https://fastbilly.com/#person" },
         "inLanguage": "en-US"
       },
@@ -46,26 +46,15 @@
         "alternateName": "FastBilly",
         "url": "https://fastbilly.com/",
         "jobTitle": "Growth Executive & Operator",
-        "description": "Growth executive, AI-native tech stacker, and consumer subscription expert. Googler #220; founding teams at Epinions, which became Shopping.com (acquired by eBay), Efficient Frontier (acquired by Adobe) and Offermatica (acquired by Omniture, now Adobe); Hearst Magazines online in 1998; owned ecommerce infrastructure at McAfee as the consumer business grew from $1B to $1.4B ahead of its sale to TPG; Nexus Capital diligence on Dollar Shave Club, then VP of Ecommerce there in 2024 and 2025.",
+        "description": "Growth executive, AI-native builder and consumer subscription expert. Googler #220; founding teams at Epinions, which became Shopping.com (acquired by eBay), Efficient Frontier (acquired by Adobe) and Offermatica (acquired by Omniture, now Adobe); Hearst Magazines online in 1998; owned ecommerce infrastructure at McAfee as the consumer business grew from $1B to $1.4B ahead of its sale to TPG; Nexus Capital diligence on Dollar Shave Club, then VP of Ecommerce there in 2024 and 2025.",
         "email": "mailto:billy@fastbilly.com",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Los Angeles",
-          "addressRegion": "CA",
-          "addressCountry": "US"
-        },
+        "address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
         "sameAs": [
           "https://www.linkedin.com/in/billhudak",
+          "https://www.instagram.com/fastbilly/",
           "https://github.com/fastbilly"
         ],
-        "knowsAbout": [
-          "Ecommerce growth",
-          "Consumer subscription",
-          "Retention and lifetime value",
-          "Lifecycle marketing",
-          "Payments and authorization",
-          "AI-assisted rapid prototyping"
-        ]
+        "knowsAbout": ["Ecommerce growth", "Consumer subscription", "Retention and lifetime value", "Lifecycle marketing", "Payments and authorization", "AI-assisted software development"]
       }
     ]
   }
@@ -74,31 +63,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script>try{var t=localStorage.getItem("fb-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
 
   <header class="site-header">
     <div class="wrap header-inner">
-      <a href="#" class="brand" aria-label="FastBilly home">
-        <svg class="brand-mark" viewBox="0 0 40 32" aria-hidden="true">
-          <path d="M2 28 L9 10 L14 22 L20 6 L26 22 L31 10 L38 28 Z"
-                fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linejoin="round" stroke-linecap="round"/>
-        </svg>
+      <a href="/" class="brand" aria-label="FastBilly home">
+        <svg class="brand-mark" viewBox="0 0 40 32" aria-hidden="true"><path d="M2 28 L9 10 L14 22 L20 6 L26 22 L31 10 L38 28 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
         <span>FastBilly</span>
       </a>
       <nav class="header-right" aria-label="Primary">
-        <a href="#shipping" class="nav-link">Shipping</a>
-        <a href="#apps" class="nav-link">Apps</a>
-        <a href="#engage" class="nav-link">10-hour</a>
-        <a href="#writing" class="nav-link">Writing</a>
-        <a href="#events" class="nav-link">Where I'll be</a>
-        <a href="#contact" class="nav-link nav-cta">Get in touch</a>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#stack" class="nav-link">Stack</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#events" class="nav-link">Events</a>
+        <a href="/card/" class="nav-pill" aria-label="Open my QR card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2h-2zM18 14h2v2h-2zM16 16h2v2h-2zM14 18h2v2h-2zM18 18h2v2h-2z" fill="currentColor"/></svg>
+          <span>QR card</span>
+        </a>
+        <a href="#contact" class="nav-link nav-cta">Say hi</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme">
           <span class="theme-dot" aria-hidden="true"></span>
-          <span id="themeLabel">Dark</span>
         </button>
       </nav>
     </div>
@@ -108,435 +96,419 @@
 
     <!-- ========================= HERO ========================= -->
     <section class="hero">
-      <div class="wrap">
-        <div class="eyebrow">A COMPANY OF ONE</div>
-        <h1 class="hero-title">
-          Bill Hudak. <span class="accent">Growth exec.</span> AI-native tech stacker. Consumer subscription expert. <em>Operator at large.</em>
-        </h1>
-        <p class="hero-sub">
-          I run ecommerce and growth for consumer software brands and, on the side, ship real
-          apps in an afternoon. This is the hub — what I'm building, how I ship it, and how
-          to work together.
-        </p>
-        <div class="hero-ctas">
-          <a href="#apps" class="btn btn-primary">See what I've shipped</a>
-          <a href="#engage" class="btn btn-ghost">The 10-hour engagement</a>
-        </div>
-
-        <!-- terminal strip -->
-        <div class="terminal" aria-hidden="true">
-          <div class="terminal-bar">
-            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-            <span class="terminal-title">bill@fastbilly ~ %</span>
-          </div>
-          <pre class="terminal-body"><span class="mono-dim">$</span> whoami
-bill hudak — growth · retention · lifecycle · rapid prototyping
-<span class="mono-dim">$</span> what
-apps that ship. decks that don't lie. dashboards that answer questions.
-<span class="mono-dim">$</span> stack
-perplexity computer · react · vite · supabase · vercel · github
-<span class="mono-dim">$</span> status
-<span class="blink">▍</span></pre>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================= COMPANY OF ONE / HOW I'M SHIPPING ========================= -->
-    <section id="shipping" class="section section-alt">
-      <div class="wrap engage-inner">
-        <div class="engage-left">
-          <div class="eyebrow">FLAGSHIP · COMPANY OF ONE</div>
-          <h2 class="section-title">How I'm shipping real software as one operator.</h2>
-          <p class="section-lede">
-            Company of One is the working guide behind everything on this page — the stack,
-            the costs, and the workflow that lets one person go from an idea in the morning
-            to a live URL by dinner. It reads like Stripe docs meets a strong LinkedIn post,
-            and it's the same operating model I use for every app below.
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <a class="next-up mono" href="#events">
+            <span class="live-dot" aria-hidden="true"></span>
+            Fri Oct 23 · Originals Summit LA · say hi
+          </a>
+          <h1 class="hero-title">
+            Bill Hudak.<br />
+            <span class="accent">Growth operator.</span><br />
+            <em>Company of one.</em>
+          </h1>
+          <p class="hero-sub">
+            Nearly 30 years growing consumer and subscription businesses, from Google #220 to McAfee
+            and Dollar Shave Club. Today I advise brands with a context-driven playbook, and I build
+            the apps they run on, solo, with an AI-native stack.
           </p>
-
-          <ul class="check-list">
-            <li><span class="check">✓</span> <strong>AI-native from the first prompt.</strong> Perplexity Computer plans and drafts, I edit and ship. No boilerplate, no ceremony.</li>
-            <li><span class="check">✓</span> <strong>Boring, durable stack.</strong> React + Vite + Supabase + Vercel + GitHub. Cheap to run, easy to hand off, hard to break.</li>
-            <li><span class="check">✓</span> <strong>Real problems only.</strong> Every app started as something I needed, then got shared with the small group who needed the same thing.</li>
-            <li><span class="check">✓</span> <strong>Public links over static handoffs.</strong> Interactive apps are the delivery mechanism for shared decisions. PDFs are for the formal moment.</li>
+          <ul class="hero-proof mono" aria-label="Highlights">
+            <li>Googler #220</li>
+            <li>3 founding-team exits</li>
+            <li>McAfee · DSC</li>
+            <li>Ships in days, not quarters</li>
           </ul>
-
-          <div class="engage-ctas">
-            <a class="btn btn-primary" href="https://company-of-one.pplx.app" target="_blank" rel="noopener">Read Company of One ↗</a>
-            <a class="btn btn-ghost" href="#apps">See what I've shipped</a>
-          </div>
         </div>
 
-        <aside class="engage-right">
-          <div class="mono-dim mono">SHIPPING STACK · ONE OPERATOR</div>
-          <div class="readout">
-            <div class="readout-head">
-              <div class="readout-title">company-of-one — operating model</div>
-              <div class="mono-dim mono readout-meta">Idea → live URL, without a team</div>
-            </div>
-            <div class="readout-row">
-              <span class="readout-label mono">PLAN</span>
-              <span>Perplexity Computer scopes the app end to end</span>
-              <span class="readout-badge good">Fast</span>
-            </div>
-            <div class="readout-row">
-              <span class="readout-label mono">BUILD</span>
-              <span>React + Vite scaffold, Supabase for data &amp; auth</span>
-              <span class="readout-badge">Standard</span>
-            </div>
-            <div class="readout-row">
-              <span class="readout-label mono">SHIP</span>
-              <span>Vercel deploy from GitHub, previews on every push</span>
-              <span class="readout-badge good">Live</span>
-            </div>
-            <div class="readout-row">
-              <span class="readout-label mono">SHARE</span>
-              <span>Public URL, phone-first, no account friction</span>
-              <span class="readout-badge open">Open</span>
-            </div>
-            <div class="readout-foot mono-dim mono">
-              Same model behind every app in the next section.
-            </div>
+        <aside class="reach" aria-labelledby="reachTitle">
+          <div class="reach-head">
+            <div class="eyebrow" id="reachTitle">GET IN TOUCH</div>
+            <p class="reach-sub">Pick whatever's easiest. I answer everything.</p>
           </div>
+          <a class="reach-btn primary" href="#contact">
+            <span class="reach-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5zM4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </span>
+            <span><strong>Send a note</strong><small>Short form, lands in my inbox</small></span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="reach-btn" href="https://www.linkedin.com/in/billhudak" target="_blank" rel="noopener">
+            <span class="reach-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4v11H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6v5.4h-4v-4.8c0-1.2 0-2.7-1.6-2.7s-1.9 1.3-1.9 2.6v4.9h-4z" fill="currentColor"/></svg>
+            </span>
+            <span><strong>LinkedIn</strong><small>in/billhudak</small></span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="reach-btn" href="https://www.instagram.com/fastbilly/" target="_blank" rel="noopener">
+            <span class="reach-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.8" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>
+            </span>
+            <span><strong>Instagram</strong><small>@fastbilly · bikes &amp; life</small></span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="reach-btn" href="/card/">
+            <span class="reach-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2h-2zM18 14h2v2h-2zM16 16h2v2h-2zM14 18h2v2h-2zM18 18h2v2h-2z" fill="currentColor"/></svg>
+            </span>
+            <span><strong>Met me in person?</strong><small>Scan my QR card, WhatsApp included</small></span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="reach-mail mono" href="mailto:billy@fastbilly.com">billy@fastbilly.com</a>
         </aside>
       </div>
     </section>
 
-    <!-- ========================= APPS ========================= -->
-    <section id="apps" class="section">
+    <!-- ========================= WHAT I DO ========================= -->
+    <section id="do" class="section section-tight">
+      <div class="wrap">
+        <div class="do-grid">
+          <article class="do-card">
+            <div class="do-num mono">01</div>
+            <h2 class="do-title">Advise</h2>
+            <p>Growth, retention and lifetime-value work for consumer and DTC brands. Fixed scope, evidence first, run on a context-driven playbook.</p>
+            <a class="do-link mono" href="#playbook">How it works →</a>
+          </article>
+          <article class="do-card">
+            <div class="do-num mono">02</div>
+            <h2 class="do-title">Build</h2>
+            <p>Customer-facing sites and back-office tools for real businesses: ordering, bookings, time clocks, dashboards. Live links, not mockups.</p>
+            <a class="do-link mono" href="#work">See the work →</a>
+          </article>
+          <article class="do-card">
+            <div class="do-num mono">03</div>
+            <h2 class="do-title">Show the stack</h2>
+            <p>One operator, an AI collaborator and a durable stack. I'll walk founders and teams through exactly how I ship, costs included.</p>
+            <a class="do-link mono" href="#stack">Open the stack →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= WORK ========================= -->
+    <section id="work" class="section">
       <div class="wrap">
         <div class="section-head">
-          <div class="eyebrow">SHIPPED &amp; SHIPPING</div>
-          <h2 class="section-title">Apps I've built as a company of one.</h2>
-          <p class="section-lede">
-            Each of these solves a real problem I had, then got shared with the small group
-            of people who had the same problem. React + Vite + Supabase + Vercel or a
-            Perplexity-hosted app link, depending on who needs access. Time from idea to
-            deployed URL, in the caption.
-          </p>
+          <div class="eyebrow">SELECTED WORK</div>
+          <h2 class="section-title">Things I've built and the problems they solve.</h2>
+          <p class="section-lede">Some you can open. Client work is described, not named; the method travels, the client's details stay private.</p>
         </div>
 
-        <div class="cards">
+        <!-- Feature: GOAT ILK -->
+        <article class="feature">
+          <div class="feature-media">
+            <img src="/assets/goatilk-hero.jpg" alt="GOAT ILK artwork: a large goat drawn from many small goats, with a single magenta goat walking up to join" width="952" height="686" />
+          </div>
+          <div class="feature-body">
+            <div class="card-tag mono">community project · alpha</div>
+            <h3 class="feature-title">GOAT ILK</h3>
+            <p class="feature-kicker">Every kid is a GOAT. This is the ILK.</p>
+            <p>
+              An experiment in helping independent artists own their corner of the internet without
+              becoming influencers. Step one is a plain-language DIY guide: artists build and run their
+              own selling site from a laptop or phone by asking an AI helper, on accounts they own,
+              with no one taking a cut.
+            </p>
+            <ul class="mini-list">
+              <li><strong>Artist owns everything.</strong> Domain, checkout, files and customers stay theirs.</li>
+              <li><strong>Plain-English stack.</strong> Perplexity as the helper, GitHub for files, Cloudflare to host, Stripe to get paid.</li>
+              <li><strong>Real identity service.</strong> Artists can claim a branded email address that forwards to their inbox.</li>
+              <li><strong>Pull before platform.</strong> The collective comes later, only if artists ask for it.</li>
+            </ul>
+            <div class="feature-ctas">
+              <a class="btn btn-primary" href="https://alpha.goatilk.com/" target="_blank" rel="noopener">Visit GOAT ILK ↗</a>
+              <a class="btn btn-ghost" href="https://alpha.goatilk.com/diy/" target="_blank" rel="noopener">Read the DIY guide ↗</a>
+            </div>
+          </div>
+        </article>
 
-          <a class="card" href="https://ye-chicago-trip.vercel.app" target="_blank" rel="noopener">
-            <div class="card-tag mono">social · trips</div>
-            <h3 class="card-title">YE · Chicago</h3>
-            <p class="card-desc">Phone-first trip companion for a 14-person concert weekend at Soldier Field — itinerary, suite &amp; tickets, roster, questions, and a live pulse. Seven mobile tabs, real seat allocation, insert-only public forms.</p>
-            <div class="card-stats mono">
-              <span><span class="mono-dim">stack</span> React + Supabase + Vercel</span>
-              <span><span class="mono-dim">built</span> over a weekend</span>
+        <div class="cards cards-3">
+
+          <!-- Restaurant client, generic -->
+          <article class="card">
+            <div class="card-visual" aria-hidden="true">
+              <div class="mock">
+                <div class="mock-row mono"><span class="mock-dot ok"></span>Clocked in · Truck 2</div>
+                <div class="mock-time">4:12<small>PM</small></div>
+                <div class="mock-sub mono">On site · location verified</div>
+                <div class="mock-bar"><span>Order ahead</span><span>Book a truck</span><span>Events</span></div>
+              </div>
             </div>
-            <div class="card-meta">
-              <span class="pill">Live</span>
-              <span class="mono-dim">ye-chicago-trip.vercel.app →</span>
+            <div class="card-tag mono">client · restaurant group</div>
+            <h3 class="card-title">Front of house to back office</h3>
+            <p class="card-desc">A multi-location restaurant with food trucks and stadium stands. Rebuilt the customer site phone-first, then added the operations layer behind it.</p>
+            <details class="more">
+              <summary>What's in it</summary>
+              <ul>
+                <li><strong>Customer side:</strong> menu, truck finder, order-ahead demo, event and truck booking, catering requests, social photos feeding the site.</li>
+                <li><strong>Crew side:</strong> a location-aware time clock for trucks, stands and pop-ups, so punches happen where the work is.</li>
+                <li><strong>Next:</strong> one database for orders, bookings, merch and punches; loyalty and text club.</li>
+              </ul>
+            </details>
+            <div class="card-meta"><span class="pill pill-soft">Prototype with owner</span><span class="mono-dim mono">private</span></div>
+          </article>
+
+          <!-- DTC brand client, generic -->
+          <article class="card" id="playbook">
+            <div class="card-visual" aria-hidden="true">
+              <div class="mock mock-readout">
+                <div class="mock-line"><span class="mono">HYPOTHESIS</span><span class="strike">Paid ads caused it</span><b class="bad">Rejected</b></div>
+                <div class="mock-line"><span class="mono">FINDING</span><span>Early-life drop-off</span><b class="good">Evidenced</b></div>
+                <div class="mock-line"><span class="mono">BRIEF</span><span>Fix #1 · size M</span><b>Ready</b></div>
+              </div>
             </div>
+            <div class="card-tag mono">client · DTC brand</div>
+            <h3 class="card-title">Retention &amp; LTV diagnostic</h3>
+            <p class="card-desc">A growing DTC brand wanted to know where customers drop off and what to fix first. I ran the context-driven playbook and handed over briefs their team can run.</p>
+            <details class="more">
+              <summary>How the playbook works</summary>
+              <ul>
+                <li><strong>Context first.</strong> The brand's data, docs and decisions go into one dedicated AI workspace, so every analysis starts from shared memory.</li>
+                <li><strong>Eight workstreams.</strong> Acquisition quality, early behavior, lifecycle, transactional, account experience, save motions, data and payments.</li>
+                <li><strong>Independent evidence.</strong> Platform self-attribution never counts on its own.</li>
+                <li><strong>Hand-off ready.</strong> Prioritized briefs with effort sizes, baselines and impact math.</li>
+              </ul>
+            </details>
+            <div class="card-meta"><span class="pill">Delivered</span><span class="mono-dim mono">confidential</span></div>
+          </article>
+
+          <!-- Ouroboros -->
+          <a class="card" href="/ouroboros/">
+            <div class="card-visual" aria-hidden="true">
+              <div class="mock mock-lock">
+                <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="120 18"/><path d="M47 14l6 3-5 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="mono">PIN required</span>
+              </div>
+            </div>
+            <div class="card-tag mono">concept · private brief</div>
+            <h3 class="card-title">Ouroboros</h3>
+            <p class="card-desc">A platform concept for how brands buy, manage and govern the SaaS and AI tools they run on. The brief is gated; ask me for a PIN.</p>
+            <div class="card-meta"><span class="pill pill-soft">By PIN</span><span class="mono-dim mono">fastbilly.com/ouroboros →</span></div>
           </a>
 
-          <a class="card" href="https://pv-housing-tour-guide.pplx.app" target="_blank" rel="noopener">
-            <div class="card-tag mono">decision tool</div>
-            <h3 class="card-title">PV Housing Tour Guide</h3>
-            <p class="card-desc">Furnished-housing ranking app built while I was searching. Four candidate archetypes, reweightable scoring, AI Q&amp;A, owner-only saves. Walked the tour with a plan; ended up choosing Paladia.</p>
-            <div class="card-stats mono">
-              <span><span class="mono-dim">stack</span> pplx.app + Supabase</span>
-              <span><span class="mono-dim">built</span> in a day</span>
-            </div>
-            <div class="card-meta">
-              <span class="pill">Live</span>
-              <span class="mono-dim">pv-housing-tour-guide.pplx.app →</span>
-            </div>
-          </a>
+        </div>
 
-          <a class="card" href="#contact">
-            <div class="card-tag mono">private · executive search</div>
-            <h3 class="card-title">FastBilly Career</h3>
-            <p class="card-desc">A private, AI-powered job-search operating system — Career Passport, explainable prioritization, warm-path detection, approval gates. Built around my own search first, then productized for other candidates.</p>
-            <div class="card-stats mono">
-              <span><span class="mono-dim">stack</span> React + Supabase + Vercel</span>
-              <span><span class="mono-dim">status</span> in build</span>
-            </div>
-            <div class="card-meta">
-              <span class="pill pill-soft">Coming soon</span>
-              <span class="mono-dim">by invite →</span>
-            </div>
-          </a>
-
-          <a class="card" href="https://gamma.app/" target="_blank" rel="noopener">
-            <div class="card-tag mono">decks &amp; briefs</div>
-            <h3 class="card-title">Gamma library</h3>
-            <p class="card-desc">Growth strategy, retention systems, and diligence decks I've written on Gamma — used for advisory intros, exec briefs, and diagnostic readouts. Selected decks shared on request.</p>
-            <div class="card-stats mono">
-              <span><span class="mono-dim">tool</span> gamma.app</span>
-              <span><span class="mono-dim">access</span> on request</span>
-            </div>
-            <div class="card-meta">
-              <span class="pill pill-soft">Selected</span>
-              <span class="mono-dim">gamma.app →</span>
-            </div>
-          </a>
-
+        <div class="also">
+          <span class="mono-dim mono">ALSO SHIPPED</span>
+          <a href="https://ye-chicago-trip.vercel.app" target="_blank" rel="noopener">YE Chicago · a phone-first trip app for a 14-person concert weekend ↗</a>
+          <span class="mono-dim">and the site you're on.</span>
         </div>
       </div>
     </section>
 
-    <!-- ========================= 10-HOUR ENGAGEMENT ========================= -->
-    <section id="engage" class="section section-alt">
-      <div class="wrap engage-inner">
-        <div class="engage-left">
-          <div class="eyebrow">THE 10-HOUR ENGAGEMENT</div>
-          <h2 class="section-title">A fixed-scope diagnostic for founders and investors.</h2>
-          <p class="section-lede">
-            I run 10-hour retention, growth, and diligence diagnostics for consumer
-            software and DTC brands — no fee for the first pass, no commercial teaser
-            attached. You get evidence, a prioritized diagnosis, and a real recommendation.
-            Not a pitch deck.
-          </p>
-
-          <ul class="check-list">
-            <li><span class="check">✓</span> <strong>Eight-workstream diagnosis</strong> — acquisition quality, early behavior, lifecycle, transactional, account &amp; subscription, save motions, data, involuntary churn.</li>
-            <li><span class="check">✓</span> <strong>Artifacts, not chat.</strong> Raw pulls in the project, one durable analysis per swimlane, a hypothesis index with evidence.</li>
-            <li><span class="check">✓</span> <strong>Independent attribution guardrail.</strong> Platform self-attribution doesn't count on its own; findings get corroborated.</li>
-            <li><span class="check">✓</span> <strong>Evidence can reject the story.</strong> Priors get overturned when the data says so — that's the whole point.</li>
-          </ul>
-
-          <div class="engage-ctas">
-            <a class="btn btn-primary" href="mailto:billy@fastbilly.com?subject=10-hour%20engagement">Ask about the 10-hour</a>
-            <a class="btn btn-ghost" href="#contact">Other ways to reach me</a>
-          </div>
-        </div>
-
-        <aside class="engage-right">
-          <div class="mono-dim mono">SAMPLE READOUT · ILLUSTRATIVE</div>
-          <div class="readout">
-            <div class="readout-head">
-              <div class="readout-title">Diagnostic ▮▮▮▮ — ▮▮▮▮▮▮▮</div>
-              <div class="mono-dim mono readout-meta">Fixed-scope engagement · Eight workstreams</div>
-            </div>
-            <div class="readout-row">
-              <span class="readout-label mono">HYPOTHESIS</span>
-              <span class="readout-strike">Channel ▮▮▮▮ drove the decline</span>
-              <span class="readout-badge bad">Rejected</span>
-            </div>
-            <div class="readout-row">
-              <span class="readout-label mono">FINDING</span>
-              <span>Paid efficiency <em>improved</em> in the same window</span>
-              <span class="readout-badge good">Evidenced</span>
-            </div>
-            <div class="readout-row">
-              <span class="readout-label mono">DIAGNOSIS</span>
-              <span>Cutover in ▮▮▮▮ + early-period retention</span>
-              <span class="readout-badge">Working</span>
-            </div>
-            <div class="readout-row">
-              <span class="readout-label mono">NEXT</span>
-              <span>Validate lifecycle vs. independent conversion evidence</span>
-              <span class="readout-badge open">Open</span>
-            </div>
-            <div class="readout-foot mono-dim mono">
-              Illustrative pattern only. Client work stays confidential.
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ========================= WHERE I'LL BE ========================= -->
-    <section id="events" class="section">
+    <!-- ========================= COMPANY OF ONE / STACK ========================= -->
+    <section id="stack" class="section section-alt">
       <div class="wrap">
         <div class="section-head">
-          <div class="eyebrow">WHERE I'LL BE</div>
-          <h2 class="section-title">Come say hi.</h2>
+          <div class="eyebrow">HOW I SHIP · COMPANY OF ONE</div>
+          <h2 class="section-title">Vibe coding is a prompt. <em>This is a company of one.</em></h2>
           <p class="section-lede">
-            A short list of what's on the calendar. If you'll be at any of these, ping me.
+            One operator, an AI collaborator with memory, and a boring, durable stack wired together.
+            That's how the work above goes from an idea in the morning to a live link by dinner.
           </p>
         </div>
 
-        <ul class="event-list">
+        <div class="stack-grid">
+          <ol class="layers">
+            <li><span class="layer-n mono">01</span><div><strong>The operator</strong><p>Me, as product manager, program manager, prompter and prototyper. I own the brief and the ship decision.</p></div></li>
+            <li><span class="layer-n mono">02</span><div><strong>Perplexity Computer</strong><p>The collaborator: research, planning, design, code and testing. It browses, builds and checks its own work.</p></div></li>
+            <li><span class="layer-n mono">03</span><div><strong>Projects &amp; memory</strong><p>A workspace per initiative with instructions, files and a knowledge wiki. This is where the context-driven playbook lives.</p></div></li>
+            <li><span class="layer-n mono">04</span><div><strong>GitHub</strong><p>Every change saved and reversible. The source of record every other tool talks to.</p></div></li>
+            <li><span class="layer-n mono">05</span><div><strong>Vercel or Cloudflare</strong><p>Hosting, preview links on every change, custom domains, rollbacks in a click.</p></div></li>
+            <li><span class="layer-n mono">06</span><div><strong>Supabase</strong><p>A real database with auth, for when an app needs to remember orders, bookings or punches.</p></div></li>
+            <li><span class="layer-n mono">07</span><div><strong>Connected tools</strong><p>Mail, calendar, Drive, Slack and more, reachable from the same session writing the code.</p></div></li>
+            <li><span class="layer-n mono">08</span><div><strong>The browser</strong><p>Everything ships as a URL. No app store, no installer. Send a link, it loads on a phone.</p></div></li>
+          </ol>
 
-          <li class="event">
-            <div class="event-date">
-              <span class="event-month mono">SEP</span>
-              <span class="event-day">17</span>
+          <aside class="stack-side">
+            <div class="readout">
+              <div class="readout-head">
+                <div class="readout-title">The loop</div>
+                <div class="mono-dim mono readout-meta">Same six steps, every build</div>
+              </div>
+              <div class="loop">
+                <div><span class="mono">1</span><b>Frame</b> one-sentence problem, user, "done"</div>
+                <div><span class="mono">2</span><b>Research</b> references and real data first</div>
+                <div><span class="mono">3</span><b>Spec</b> shortest path to a working demo</div>
+                <div><span class="mono">4</span><b>Build</b> happy path, then a preview link</div>
+                <div><span class="mono">5</span><b>Show</b> watch a real user, fix the top two</div>
+                <div><span class="mono">6</span><b>Publish</b> domain, analytics, decisions logged</div>
+              </div>
             </div>
-            <div class="event-body">
-              <div class="event-badge mono">SPEAKING</div>
-              <div class="event-title">Ecom North · LA Summit</div>
-              <div class="event-meta mono-dim mono">City Market Social House · Los Angeles · Thu</div>
-              <p class="event-desc">Application-only summit for 6–7-figure+ DTC founders and operators. Retention, CAC/LTV, and the operating frameworks behind scaling in 2026.</p>
-            </div>
-            <a class="event-link mono" href="https://luma.com/6xuvytne" target="_blank" rel="noopener">Details ↗</a>
-          </li>
 
-          <li class="event">
-            <div class="event-date">
-              <span class="event-month mono">SEP</span>
-              <span class="event-day">22</span>
-              <span class="event-day-range mono">–24</span>
+            <div class="readout cost">
+              <div class="readout-head">
+                <div class="readout-title">What it costs to run</div>
+                <div class="mono-dim mono readout-meta">Approximate, monthly</div>
+              </div>
+              <div class="cost-row"><span>Perplexity Computer (Max)</span><span class="mono">$200</span></div>
+              <div class="cost-row"><span>Supabase Pro</span><span class="mono">$25</span></div>
+              <div class="cost-row"><span>Vercel Pro</span><span class="mono">$20</span></div>
+              <div class="cost-row"><span>Google Workspace</span><span class="mono">$12</span></div>
+              <div class="cost-row"><span>GitHub Pro + domains</span><span class="mono">$6</span></div>
+              <div class="cost-row total"><span>Total</span><span class="mono">~$263</span></div>
             </div>
-            <div class="event-body">
-              <div class="event-badge mono">ATTENDING</div>
-              <div class="event-title">RetailClub AI Festival</div>
-              <div class="event-meta mono-dim mono">Beachside · Huntington Beach · Tue–Thu</div>
-              <p class="event-desc">All-outdoor, beachside retail event from the Shoptalk / Groceryshop founders. Peer-to-peer working sessions on retail in an AI-first world.</p>
-            </div>
-            <a class="event-link mono" href="https://retailclub.com/" target="_blank" rel="noopener">Details ↗</a>
-          </li>
+          </aside>
+        </div>
 
-          <li class="event">
-            <div class="event-date">
-              <span class="event-month mono">SEP</span>
-              <span class="event-day">23</span>
-            </div>
-            <div class="event-body">
-              <div class="event-badge mono">DINNER</div>
-              <div class="event-title">Golden Hour Dinner</div>
-              <div class="event-meta mono-dim mono">Brands-only · Huntington Beach · Wed</div>
-              <p class="event-desc">A small dinner for retail and commerce operators — the conversations that don't happen on a conference floor. Hosted by Wildcard, Hue, and Gigit AI.</p>
-            </div>
-            <a class="event-link mono" href="https://luma.com/ufj6bq1n" target="_blank" rel="noopener">Details ↗</a>
-          </li>
-
-          <li class="event">
-            <div class="event-date">
-              <span class="event-month mono">OCT</span>
-              <span class="event-day">—</span>
-            </div>
-            <div class="event-body">
-              <div class="event-badge mono">EMCEEING</div>
-              <div class="event-title">Anaheim event · TBA</div>
-              <div class="event-meta mono-dim mono">Anaheim · October · date to come</div>
-              <p class="event-desc">Emceeing a full-day operator event in Anaheim this October. Details land here as soon as they're locked.</p>
-            </div>
-            <span class="event-link mono mono-dim">Details soon</span>
-          </li>
-
-        </ul>
+        <details class="compare">
+          <summary>
+            <span>How is this different from vibe coding?</span>
+            <span class="mono-dim mono">Compare →</span>
+          </summary>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th></th><th>Vibe coding</th><th>Company of one</th></tr></thead>
+              <tbody>
+                <tr><th>Output</th><td>A one-shot artifact</td><td>A live URL with a domain and analytics</td></tr>
+                <tr><th>Memory</th><td>Every prompt starts cold</td><td>Project memory across sessions</td></tr>
+                <tr><th>Data</th><td>Whatever fits in the prompt</td><td>Real database, auth and integrations</td></tr>
+                <tr><th>Deploy</th><td>Copy-paste somewhere</td><td>Managed hosting, previews, rollbacks</td></tr>
+                <tr><th>Iteration</th><td>Regenerate and hope</td><td>Commit, review, redeploy</td></tr>
+                <tr><th>Ceiling</th><td>Toy demos</td><td>Client sites, internal tools, dashboards in production</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="compare-foot">The difference isn't the model. It's the workflow, the memory, and that every session ends with a link someone else can open.</p>
+        </details>
       </div>
     </section>
 
-    <!-- ========================= ABOUT / BIO ========================= -->
-    <section id="about" class="section section-alt">
+    <!-- ========================= ABOUT ========================= -->
+    <section id="about" class="section">
       <div class="wrap about-grid">
         <div>
           <div class="eyebrow">BONA FIDES</div>
           <h2 class="section-title">Nearly 30 years turning consumer businesses into recurring-revenue machines.</h2>
           <p class="section-lede">
-            I've worked on every side of digital commerce: the brand, the martech platform
-            and the ad platform. I'm an ecommerce and subscription operator and growth
-            leader who has also helped build the tools brands buy, and I've been the person
-            the deal memo lands on.
+            I've worked every side of digital commerce: the brand, the martech platform and the ad
+            platform. I've built the tools brands buy, run the P&amp;L lines they report, and been the
+            person the deal memo lands on.
           </p>
+          <div class="chips">
+            <span class="chip">Retention &amp; LTV</span>
+            <span class="chip">Subscription growth</span>
+            <span class="chip">Lifecycle &amp; CRM</span>
+            <span class="chip">Payments &amp; authorization</span>
+            <span class="chip">Consumer diligence</span>
+            <span class="chip">AI-native building</span>
+          </div>
         </div>
         <div class="bio-facts">
           <div class="fact">
             <div class="fact-label mono">WHERE IT STARTED</div>
-            <div class="fact-body"><strong>Googler #220.</strong> Interviewed by Larry Page. Mental problem-solving at a whiteboard, then five years of a small company becoming a big one.</div>
+            <div class="fact-body"><strong>Googler #220.</strong> Interviewed by Larry Page, then five years of a small company becoming a big one.</div>
           </div>
           <div class="fact">
             <div class="fact-label mono">FOUNDING TEAMS WITH EXITS</div>
-            <div class="fact-body"><strong>Epinions</strong>, which became Shopping.com (acquired by eBay); <strong>Efficient Frontier</strong> (acquired by Adobe, where it became Adobe AdLens); and <strong>Offermatica</strong> (acquired by Omniture, now part of Adobe).</div>
+            <div class="fact-body"><strong>Epinions</strong>, which became Shopping.com (acquired by eBay); <strong>Efficient Frontier</strong> (acquired by Adobe); <strong>Offermatica</strong> (acquired by Omniture, now Adobe).</div>
+          </div>
+          <div class="fact">
+            <div class="fact-label mono">McAFEE, UNDER INTEL</div>
+            <div class="fact-body">Started as head of global DTC and grew into owning ecommerce infrastructure: push messaging to 30M devices daily, a proprietary attribution platform, retention and payment-retry logic, and the HP channel. The consumer business grew from $1B to $1.4B ahead of its sale to <strong>TPG</strong>.</div>
+          </div>
+          <div class="fact">
+            <div class="fact-label mono">DOLLAR SHAVE CLUB</div>
+            <div class="fact-body">Diligence for <strong>Nexus Capital</strong> on its 2023 purchase from Unilever, then VP of Ecommerce in 2024 and 2025.</div>
           </div>
           <div class="fact">
             <div class="fact-label mono">WEB 1.0</div>
             <div class="fact-body"><strong>Hearst Magazines</strong> online in 1998, the banner-ad era.</div>
           </div>
-          <div class="fact">
-            <div class="fact-label mono">McAFEE, UNDER INTEL</div>
-            <div class="fact-body">Started as head of global direct-to-consumer and grew into owning all ecommerce infrastructure: built the push-messaging platform (30M devices connected daily) and a proprietary attribution platform, wrote the retention and payment-retry logic, and ran DTC, retention and the HP channel, about 80% of the ecommerce business. The consumer business grew from $1B to $1.4B ahead of its sale to <strong>TPG</strong>.</div>
-          </div>
-          <div class="fact">
-            <div class="fact-label mono">DOLLAR SHAVE CLUB</div>
-            <div class="fact-body">Engaged by <strong>Nexus Capital</strong> for diligence on its 2023 purchase of Dollar Shave Club from Unilever, then VP of Ecommerce in 2024 and 2025.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="wrap chips-wrap">
-        <div class="mono-dim mono chips-label">WHAT I'M USUALLY DOING</div>
-        <div class="chips">
-          <span class="chip">Retention &amp; LTV diagnostics</span>
-          <span class="chip">Ecommerce &amp; subscription growth</span>
-          <span class="chip">Lifecycle &amp; CRM (Klaviyo, Braze)</span>
-          <span class="chip">Payments &amp; authorization</span>
-          <span class="chip">Ops design &amp; intake</span>
-          <span class="chip">Consumer diligence</span>
-          <span class="chip">AI-assisted rapid prototyping</span>
-          <span class="chip">Founder-facing executive briefs</span>
-          <span class="chip">Tech guru</span>
-          <span class="chip">Industry OG</span>
-          <span class="chip">Artist / Scientist</span>
         </div>
       </div>
     </section>
 
-    <!-- ========================= WRITING ========================= -->
-    <section id="writing" class="section">
+    <!-- ========================= EVENTS ========================= -->
+    <section id="events" class="section section-alt">
       <div class="wrap">
         <div class="section-head">
-          <div class="eyebrow">WRITING &amp; NOTES</div>
-          <h2 class="section-title">Short pieces on how I actually work.</h2>
-          <p class="section-lede">
-            Working notes, not think pieces. Most started as a real project and got
-            distilled into something I could point at.
-          </p>
+          <div class="eyebrow">WHERE I'LL BE</div>
+          <h2 class="section-title">Come say hi.</h2>
         </div>
 
-        <ul class="writing-list">
-          <li class="writing-item">
-            <a href="https://company-of-one.pplx.app" target="_blank" rel="noopener">
-              <div class="writing-meta mono"><span>ESSAY</span><span>·</span><span>Live</span></div>
-              <div class="writing-title">Vibe coding is a prompt. This is a company of one.</div>
-              <div class="writing-desc">The stack, the costs, and the workflow behind shipping real software solo.</div>
-            </a>
-          </li>
-          <li class="writing-item">
-            <a href="#apps">
-              <div class="writing-meta mono"><span>CASE</span><span>·</span><span>YE Chicago</span></div>
-              <div class="writing-title">A 14-person concert weekend, built as an app.</div>
-              <div class="writing-desc">How a private, phone-first trip companion beats a spreadsheet and a group chat every time — and what the seven tabs actually do.</div>
-            </a>
-          </li>
-          <li class="writing-item">
-            <a href="#engage">
-              <div class="writing-meta mono"><span>METHOD</span><span>·</span><span>Retention</span></div>
-              <div class="writing-title">Eight workstreams for a real retention diagnosis.</div>
-              <div class="writing-desc">Acquisition quality, early behavior, lifecycle, transactional, account &amp; subscription, save motions, data, and involuntary churn. Use the whole map or the diagnosis is wrong.</div>
-            </a>
-          </li>
-          <li class="writing-item">
-            <a href="#apps">
-              <div class="writing-meta mono"><span>PRINCIPLE</span><span>·</span><span>Publishing</span></div>
-              <div class="writing-title">Public links over static handoffs.</div>
-              <div class="writing-desc">Interactive apps are the delivery mechanism for shared decisions. PDFs are for the formal moment.</div>
-            </a>
+        <ul class="event-list">
+          <li class="event event-next">
+            <div class="event-date"><span class="event-month mono">OCT</span><span class="event-day">23</span></div>
+            <div class="event-body">
+              <div class="event-badge mono">UP NEXT · ATTENDING</div>
+              <div class="event-title">Originals Summit // Los Angeles</div>
+              <div class="event-meta mono-dim mono">League of Originals · Los Angeles · Fri · 10am–6pm</div>
+              <p class="event-desc">A one-day summit with the founders and operators behind fast-growing consumer brands. Find me, or just say "hit up FastBilly."</p>
+            </div>
+            <a class="event-link mono" href="https://luma.com/n48294ja" target="_blank" rel="noopener">Details ↗</a>
           </li>
         </ul>
 
-        <div class="writing-cta mono-dim mono">
-          More is coming. If you want to be told when, <a href="#contact">say so.</a>
+        <div class="recent">
+          <span class="mono-dim mono">RECENTLY</span>
+          <span>Emcee, TopTier Summit at YFCon, Anaheim (Oct)</span>
+          <span>Ecom North LA Summit (Sep)</span>
+          <span>RetailClub AI Festival, Huntington Beach (Sep)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= OFF THE CLOCK ========================= -->
+    <section id="offclock" class="section">
+      <div class="wrap offclock">
+        <div class="offclock-art" aria-hidden="true">
+          <svg viewBox="0 0 320 180">
+            <path d="M0 150 L52 70 L84 118 L138 34 L192 118 L226 70 L320 150 Z" style="fill: color-mix(in oklab, var(--accent) 14%, transparent); stroke: var(--accent)" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M0 166 C 60 150, 110 172, 170 156 S 270 150, 320 160" fill="none" style="stroke: var(--accent-2)" stroke-width="2.5" stroke-dasharray="6 7" stroke-linecap="round"/>
+            <circle cx="272" cy="34" r="12" style="fill: var(--accent-2)"/>
+            <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" transform="translate(118 108)">
+              <circle cx="14" cy="38" r="15"/><circle cx="74" cy="38" r="15"/>
+              <path d="M14 38 L32 14 L60 14 L74 38 M32 14 L44 38 L60 14 M28 6 h10 M56 4 l4 10 M52 4 h12"/>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <div class="eyebrow">OFF THE CLOCK</div>
+          <h2 class="section-title">Mountain bikes, live music, good food.</h2>
+          <p class="section-lede">I'm on a trail or an e-bike most weekends, and out at shows and restaurants the rest. If you ride, let's ride sometime.</p>
+          <div class="feature-ctas">
+            <a class="btn btn-ghost" href="https://www.instagram.com/fastbilly/" target="_blank" rel="noopener">Follow @fastbilly ↗</a>
+            <a class="btn btn-ghost" href="#contact" data-topic="Let's ride">Let's ride →</a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ========================= CONTACT ========================= -->
     <section id="contact" class="section section-alt contact">
-      <div class="wrap contact-inner">
+      <div class="wrap contact-grid">
         <div>
-          <div class="eyebrow">GET IN TOUCH</div>
-          <h2 class="section-title">Best way in: email.</h2>
-          <p class="section-lede">
-            Founder, investor, operator, or just curious — pick the one that fits and send
-            a short note. I read everything.
-          </p>
-        </div>
-        <div class="contact-actions">
-          <a class="btn btn-primary btn-lg" href="mailto:billy@fastbilly.com">billy@fastbilly.com</a>
+          <div class="eyebrow">SAY HI</div>
+          <h2 class="section-title">Send a note. It comes straight to me.</h2>
+          <p class="section-lede">Founder, investor, operator, artist or fellow rider. A couple of lines is plenty.</p>
           <div class="contact-links mono">
             <a href="https://www.linkedin.com/in/billhudak" target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a href="https://github.com/fastbilly" target="_blank" rel="noopener">GitHub ↗</a>
-            <a href="https://gamma.app/" target="_blank" rel="noopener">Gamma ↗</a>
-            <a href="https://company-of-one.pplx.app" target="_blank" rel="noopener">Company of One ↗</a>
+            <a href="https://www.instagram.com/fastbilly/" target="_blank" rel="noopener">Instagram ↗</a>
+            <a href="mailto:billy@fastbilly.com">billy@fastbilly.com</a>
+            <a href="/card/">QR card →</a>
           </div>
         </div>
+
+        <form class="form" id="contactForm" novalidate>
+          <div class="field-row">
+            <label class="field"><span>Name</span><input name="name" autocomplete="name" required maxlength="120" /></label>
+            <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" inputmode="email" required maxlength="200" /></label>
+          </div>
+          <fieldset class="topics">
+            <legend>What's this about?</legend>
+            <label><input type="radio" name="topic" value="Advisory" checked /><span>Advisory</span></label>
+            <label><input type="radio" name="topic" value="An app for my business" /><span>An app for my business</span></label>
+            <label><input type="radio" name="topic" value="Met at an event" /><span>Met at an event</span></label>
+            <label><input type="radio" name="topic" value="Let's ride" /><span>Let's ride</span></label>
+            <label><input type="radio" name="topic" value="Something else" /><span>Something else</span></label>
+          </fieldset>
+          <label class="field"><span>Message</span><textarea name="message" rows="4" required maxlength="4000"></textarea></label>
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="form-foot">
+            <button class="btn btn-primary" type="submit" id="sendBtn">Send it</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </div>
+        </form>
       </div>
     </section>
 
@@ -545,19 +517,13 @@ perplexity computer · react · vite · supabase · vercel · github
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <div class="brand small">
-        <svg class="brand-mark sm" viewBox="0 0 40 32" aria-hidden="true">
-          <path d="M2 28 L9 10 L14 22 L20 6 L26 22 L31 10 L38 28 Z"
-                fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linejoin="round" stroke-linecap="round"/>
-        </svg>
+        <svg class="brand-mark sm" viewBox="0 0 40 32" aria-hidden="true"><path d="M2 28 L9 10 L14 22 L20 6 L26 22 L31 10 L38 28 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
         <span>FastBilly</span>
       </div>
-      <div class="mono-dim mono footer-meta">
-        © <span id="year"></span> Bill Hudak · a company of one · built in an afternoon
-      </div>
+      <div class="mono-dim mono footer-meta">© <span id="year"></span> Bill Hudak · a company of one · built with Perplexity Computer</div>
     </div>
   </footer>
 
-  <script src="./app.js"></script>
+  <script src="/app.js"></script>
 </body>
 </html>

@@ -1,20 +1,83 @@
 {
   "redirects": [
-    { "source": "/ouroboros", "destination": "/ouroboros/", "permanent": false }
+    {
+      "source": "/ouroboros",
+      "destination": "/ouroboros/",
+      "permanent": false
+    },
+    {
+      "source": "/card",
+      "destination": "/card/",
+      "permanent": false
+    },
+    {
+      "source": "/qr",
+      "destination": "/card/",
+      "permanent": false
+    },
+    {
+      "source": "/connect",
+      "destination": "/card/",
+      "permanent": false
+    },
+    {
+      "source": "/company-of-one",
+      "destination": "/#stack",
+      "permanent": false
+    },
+    {
+      "source": "/stack",
+      "destination": "/#stack",
+      "permanent": false
+    }
   ],
   "headers": [
     {
       "source": "/ouroboros/(.*)",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
-        { "key": "Cache-Control", "value": "no-store" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "same-origin" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "same-origin"
+        }
       ]
     },
     {
-      "source": "/api/ouroboros/(.*)",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+      "source": "/card/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     }
   ]
 }

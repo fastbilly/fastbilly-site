@@ -5,13 +5,22 @@ Static site (HTML/CSS/JS), no build step. Deploy directly to Vercel.
 
 ## Sections
 
-- Hero + terminal strip
-- Apps I've built as a company of one
-- The 10-hour engagement (fixed-scope retention diagnostic)
-- Where I'll be (upcoming events)
-- Bona fides
-- Writing & notes
-- Contact
+- Hero with a Get in touch panel (form, LinkedIn, Instagram, QR card)
+- Advise / Build / Show the stack
+- Selected work: GOAT ILK feature, anonymized client work, Ouroboros (PIN-gated)
+- Company of One stack, loop, costs and vibe-coding comparison (`#stack`)
+- Bona fides, events, off the clock, contact form
+
+## QR card (`/card/`)
+
+Phone-first conference card with LinkedIn, Instagram and site QR codes, generated in the
+browser by the vendored `assets/qrcode.js` (MIT, Kazuhiko Arase). The WhatsApp tab is
+PIN-locked: `card/wa.enc.json` holds AES-GCM ciphertext; the 8-digit PIN derives the key (PBKDF2-SHA256, 600k iterations) on the device, and the unlocked link is remembered in localStorage until Lock is tapped. No plaintext number is in this repo.
+To change the number or PIN, regenerate `wa.enc.json` with the same format.
+
+## Contact form
+
+Posts to FormSubmit (`formsubmit.co/ajax/...`) and falls back to a mailto link if the relay fails.
 
 ## Brand system
 

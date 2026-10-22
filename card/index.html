@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Bill Hudak · QR card · FastBilly</title>
+  <meta name="description" content="Scan to connect with Bill Hudak on LinkedIn, Instagram or fastbilly.com." />
+  <meta name="theme-color" content="#211E24" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="FastBilly" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="/assets/icon-180.png" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'><path d='M2 28 L9 10 L14 22 L20 6 L26 22 L31 10 L38 28 Z' fill='none' stroke='%23FF6BD8' stroke-width='3' stroke-linejoin='round' stroke-linecap='round'/></svg>" />
+  <link rel="canonical" href="https://fastbilly.com/card/" />
+  <meta property="og:title" content="Bill Hudak · FastBilly" />
+  <meta property="og:description" content="Scan to connect: LinkedIn, Instagram, fastbilly.com." />
+  <meta property="og:image" content="https://fastbilly.com/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --m: #FF6BD8; --t: #4FD1C5; --bg: #211E24; --bg2: #2A2630; --bg3: #353040;
+      --text: #FBF3FA; --body: #E0D6DE; --muted: #A69EAD; --line: rgba(251,243,250,.12);
+      --sans: "Inter", system-ui, -apple-system, sans-serif; --serif: "Instrument Serif", serif; --mono: "JetBrains Mono", ui-monospace, monospace;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      background: radial-gradient(80% 50% at 20% 0%, rgba(255,107,216,.18), transparent 60%),
+                  radial-gradient(70% 45% at 100% 10%, rgba(79,209,197,.14), transparent 65%), var(--bg);
+      background-attachment: fixed;
+      color: var(--body); font-family: var(--sans); -webkit-font-smoothing: antialiased;
+      min-height: 100dvh; display: flex; flex-direction: column;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    }
+    a { color: var(--t); text-decoration: none; }
+    .top { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px 0; }
+    .brand { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font-weight: 700; font-size: 15px; }
+    .brand svg { width: 26px; height: 21px; color: var(--m); }
+    .home { font-family: var(--mono); font-size: 12px; color: var(--muted); padding: 8px 0; }
+    main { flex: 1; width: 100%; max-width: 460px; margin: 0 auto; padding: 14px 20px 20px; display: flex; flex-direction: column; }
+    .who { text-align: center; margin: 4px 0 16px; }
+    .who h1 { font-family: var(--serif); font-weight: 400; font-size: 40px; line-height: 1; color: var(--text); margin: 0 0 6px; letter-spacing: -.01em; }
+    .who p { margin: 0; font-size: 14.5px; color: var(--muted); }
+    .who p b { color: var(--m); font-weight: 600; }
+
+    .tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 4px; border-radius: 16px; background: var(--bg2); border: 1px solid var(--line); margin-bottom: 16px; }
+    .tab { appearance: none; border: 0; background: transparent; color: var(--body); font: 600 13px var(--sans); padding: 10px 2px; border-radius: 12px; cursor: pointer; display: grid; justify-items: center; gap: 4px; min-height: 58px; }
+    .tab svg { width: 20px; height: 20px; }
+    .tab[aria-selected="true"] { background: var(--m); color: #211E24; }
+    .tab:focus-visible { outline: 2px solid var(--t); outline-offset: 2px; }
+
+    .panel { flex: 1; display: flex; flex-direction: column; align-items: center; }
+    .qr-tile { width: min(100%, 360px); aspect-ratio: 1; background: #fff; border-radius: 26px; padding: 22px; display: grid; place-items: center; box-shadow: 0 24px 60px rgba(0,0,0,.45); position: relative; }
+    .qr-tile svg { width: 100%; height: 100%; display: block; }
+    .qr-tile .badge { position: absolute; width: 21%; height: 21%; border-radius: 22%; display: grid; place-items: center; background: #fff; }
+    .qr-tile .badge span { width: 84%; height: 84%; border-radius: 22%; display: grid; place-items: center; color: #fff; }
+    .qr-tile .badge svg { width: 62%; height: 62%; }
+    .label { margin-top: 18px; text-align: center; }
+    .label .big { display: block; font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -.01em; }
+    .label .small { display: block; font-family: var(--mono); font-size: 13px; color: var(--muted); margin-top: 4px; word-break: break-all; }
+    .open { margin-top: 14px; display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; min-height: 46px; border-radius: 999px; border: 1px solid var(--line); color: var(--text); font-weight: 600; font-size: 14.5px; }
+
+    .lock { width: min(100%, 360px); aspect-ratio: 1; border-radius: 26px; background: var(--bg2); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 26px; text-align: center; }
+    .lock .ico { width: 54px; height: 54px; border-radius: 16px; background: #25D366; display: grid; place-items: center; margin-bottom: 14px; }
+    .lock .ico svg { width: 30px; height: 30px; color: #fff; }
+    .lock h2 { margin: 0 0 6px; font-size: 19px; color: var(--text); }
+    .lock p { margin: 0 0 16px; font-size: 14px; color: var(--muted); }
+    .pin-row { display: flex; gap: 8px; width: 100%; }
+    .pin-row input { flex: 1; min-width: 0; font: 600 20px var(--mono); letter-spacing: .3em; text-align: center; color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 12px; min-height: 52px; }
+    .pin-row input:focus { outline: none; border-color: var(--t); }
+    .pin-row button { appearance: none; border: 0; background: var(--m); color: #211E24; font: 700 15px var(--sans); border-radius: 14px; padding: 0 18px; min-height: 52px; cursor: pointer; }
+    .pin-row button:disabled { opacity: .6; }
+    .pin-msg { min-height: 20px; margin-top: 10px; font-size: 13.5px; color: #ff8fa3; }
+    .alt { margin-top: 12px; font-size: 13.5px; color: var(--muted); }
+    .relock { margin-top: 10px; background: none; border: 0; color: var(--muted); font: 12px var(--mono); text-decoration: underline; cursor: pointer; padding: 8px; }
+
+    .say { margin: 22px 0 6px; text-align: center; font-size: 14px; color: var(--muted); }
+    .say b { color: var(--text); }
+    .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+    .act { display: grid; place-items: center; text-align: center; padding: 12px; min-height: 48px; border-radius: 14px; border: 1px solid var(--line); background: var(--bg2); color: var(--text); font-weight: 600; font-size: 14px; }
+    .hint { margin-top: 14px; text-align: center; font-size: 12px; color: var(--muted); font-family: var(--mono); }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <a class="brand" href="/" aria-label="FastBilly home">
+      <svg viewBox="0 0 40 32" aria-hidden="true"><path d="M2 28 L9 10 L14 22 L20 6 L26 22 L31 10 L38 28 Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      FastBilly
+    </a>
+    <a class="home" href="/">fastbilly.com →</a>
+  </div>
+
+  <main>
+    <div class="who">
+      <h1>Bill Hudak</h1>
+      <p><b>Growth operator</b> · company of one</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Ways to connect">
+      <button class="tab" role="tab" id="t-linkedin" aria-controls="panel" data-tab="linkedin">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4v11H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6v5.4h-4v-4.8c0-1.2 0-2.7-1.6-2.7s-1.9 1.3-1.9 2.6v4.9h-4z" fill="currentColor"/></svg>
+        LinkedIn
+      </button>
+      <button class="tab" role="tab" id="t-whatsapp" aria-controls="panel" data-tab="whatsapp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.6 7.9c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .6.5l.8 1.8c.1.2 0 .4-.1.6l-.5.6c-.1.1-.2.3 0 .5.3.6.8 1.2 1.3 1.7.6.5 1.2.9 1.9 1.2.2.1.4 0 .5-.1l.7-.8c.2-.2.3-.2.6-.1l1.7.8c.3.1.4.2.4.4 0 .5-.1 1.2-.7 1.7-.6.5-1.6.8-2.9.4-1.4-.4-2.8-1.3-4-2.5-1.1-1.1-2-2.5-2.3-3.8-.3-1.2.1-2.1.6-2.5z" fill="currentColor"/></svg>
+        WhatsApp
+      </button>
+      <button class="tab" role="tab" id="t-instagram" aria-controls="panel" data-tab="instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.8" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>
+        Instagram
+      </button>
+      <button class="tab" role="tab" id="t-site" aria-controls="panel" data-tab="site">
+        <svg viewBox="0 0 40 32" aria-hidden="true"><path d="M2 28 L9 10 L14 22 L20 6 L26 22 L31 10 L38 28 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>
+        Site
+      </button>
+    </div>
+
+    <section class="panel" id="panel" role="tabpanel" aria-live="polite">
+      <div id="qrView">
+        <div class="qr-tile" id="qrTile"></div>
+      </div>
+      <div class="lock" id="lockView" hidden>
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+        <h2>WhatsApp is in-person only</h2>
+        <p>Bill unlocks this on his phone when you meet. Everyone else: LinkedIn or the form works great.</p>
+        <form class="pin-row" id="pinForm" autocomplete="off">
+          
+          <input id="pin" name="pin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="12" placeholder="PIN" aria-label="PIN" />
+          <button type="submit" id="pinBtn">Unlock</button>
+        </form>
+        <div class="pin-msg" id="pinMsg" role="status"></div>
+      </div>
+      <div class="label" id="label"></div>
+      <a class="open" id="openLink" href="#" target="_blank" rel="noopener">Open link ↗</a>
+      <button class="relock" id="relock" hidden>Lock WhatsApp on this phone</button>
+    </section>
+
+    <p class="say">Or just remember: <b>hit up fastbilly.com</b></p>
+    <div class="actions">
+      <a class="act" href="/#contact">Send me a note</a>
+      <a class="act" href="/">About Bill</a>
+    </div>
+    <p class="hint" id="hint">Tip: Share → Add to Home Screen opens this card in one tap.</p>
+  </main>
+
+  <script src="/assets/qrcode.js"></script>
+  <script src="/card/card.js"></script>
+</body>
+</html>
