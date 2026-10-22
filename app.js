@@ -1,17 +1,17 @@
 // FastBilly hub — light interactions
 (function () {
   const root = document.documentElement;
+  const getC = (k) => { try { const m = document.cookie.split('; ').find((c) => c.startsWith(k + '=')); return m ? decodeURIComponent(m.slice(k.length + 1)) : null; } catch (e) { return null; } };
+  const setC = (k, v, days) => { try { document.cookie = k + '=' + encodeURIComponent(v) + '; Max-Age=' + Math.round(days * 86400) + '; Path=/; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : ''); } catch (e) {} };
 
   // Theme: remember the visitor's choice on this device.
-  try {
-    const saved = localStorage.getItem('fb-theme');
-    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
-  } catch (e) {}
+  const saved = getC('fb_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
   const btn = document.getElementById('themeToggle');
   if (btn) btn.addEventListener('click', () => {
     const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
     root.setAttribute('data-theme', next);
-    try { localStorage.setItem('fb-theme', next); } catch (e) {}
+    setC('fb_theme', next, 365);
   });
 
   const y = document.getElementById('year');

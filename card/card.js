@@ -12,6 +12,8 @@
   };
 
   const $ = (id) => document.getElementById(id);
+  const getC = (k) => { try { const m = document.cookie.split('; ').find((c) => c.startsWith(k + '=')); return m ? decodeURIComponent(m.slice(k.length + 1)) : null; } catch (e) { return null; } };
+  const setC = (k, v, days) => { try { document.cookie = k + '=' + encodeURIComponent(v) + '; Max-Age=' + Math.round(days * 86400) + '; Path=/; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : ''); } catch (e) {} };
   const tile = $('qrTile'), qrView = $('qrView'), lockView = $('lockView'), label = $('label'), openLink = $('openLink'), relock = $('relock');
   let wa = null, current = 'linkedin';
 
@@ -29,7 +31,7 @@
     const t = TABS[tab];
     current = tab;
     document.querySelectorAll('.tab').forEach((b) => b.setAttribute('aria-selected', b.dataset.tab === tab ? 'true' : 'false'));
-    try { localStorage.setItem('fb-card-tab', tab); } catch (e) {}
+    setC('fb_card_tab', tab, 365);
     history.replaceState(null, '', '#' + tab);
 
     const url = tab === 'whatsapp' ? (wa && wa.url) : t.url;
@@ -48,9 +50,9 @@
 
   // WhatsApp details ship only as AES-GCM ciphertext (card/wa.enc.json). The PIN derives the key
   // on this device; once unlocked, the link is remembered here until "Lock" is tapped.
-  const STORE = 'fb-card-wa';
+  const STORE = 'fb_card_wa';
   function checkWa() {
-    try { const s = JSON.parse(localStorage.getItem(STORE) || 'null'); if (s && s.url) wa = s; } catch (e) {}
+    try { const s = JSON.parse(getC(STORE) || 'null'); if (s && s.url) wa = s; } catch (e) {}
     return Promise.resolve();
   }
   const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
@@ -81,7 +83,7 @@
     btn.disabled = true; msg.style.color = 'var(--muted)'; msg.textContent = 'Unlocking…';
     try {
       wa = await decryptWa(pin);
-      try { localStorage.setItem(STORE, JSON.stringify(wa)); } catch (e2) {}
+      setC(STORE, JSON.stringify(wa), 365);
       $('pin').value = ''; msg.textContent = ''; render('whatsapp');
     } catch (err) {
       await new Promise((r) => setTimeout(r, 600));
@@ -91,7 +93,7 @@
   });
 
   relock.addEventListener('click', async () => {
-    try { localStorage.removeItem(STORE); } catch (e) {}
+    setC(STORE, '', 0);
     wa = null; render('whatsapp');
   });
 
@@ -100,7 +102,7 @@
 
   const fromHash = (location.hash || '').slice(1);
   let start = TABS[fromHash] ? fromHash : null;
-  if (!start) { try { start = localStorage.getItem('fb-card-tab'); } catch (e) {} }
+  if (!start) start = getC('fb_card_tab');
   if (!TABS[start]) start = 'linkedin';
   render(start === 'whatsapp' ? 'linkedin' : start);
   checkWa().then(() => { if (start === 'whatsapp' || current === 'whatsapp') render('whatsapp'); });

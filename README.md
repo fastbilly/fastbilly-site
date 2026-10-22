@@ -15,7 +15,7 @@ Static site (HTML/CSS/JS), no build step. Deploy directly to Vercel.
 
 Phone-first conference card with LinkedIn, Instagram and site QR codes, generated in the
 browser by the vendored `assets/qrcode.js` (MIT, Kazuhiko Arase). The WhatsApp tab is
-PIN-locked: `card/wa.enc.json` holds AES-GCM ciphertext; the 8-digit PIN derives the key (PBKDF2-SHA256, 600k iterations) on the device, and the unlocked link is remembered in localStorage until Lock is tapped. No plaintext number is in this repo.
+PIN-locked: `card/wa.enc.json` holds AES-GCM ciphertext; the 8-digit PIN derives the key (PBKDF2-SHA256, 600k iterations) on the device, and the unlocked link is remembered in a first-party cookie until Lock is tapped. No plaintext number is in this repo.
 To change the number or PIN, regenerate `wa.enc.json` with the same format.
 
 ## Contact form
