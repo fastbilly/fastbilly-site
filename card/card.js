@@ -55,7 +55,7 @@
   }
   const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
   async function decryptWa(pin) {
-    const blob = await (await fetch('/card/wa.enc.json', { cache: 'no-store' })).json();
+    const blob = await (await fetch('./wa.enc.json', { cache: 'no-store' })).json();
     const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pin), 'PBKDF2', false, ['deriveKey']);
     const key = await crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64(blob.salt), iterations: blob.iter, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
     const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(blob.iv) }, key, b64(blob.ct));
