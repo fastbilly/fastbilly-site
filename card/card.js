@@ -274,6 +274,7 @@
 
   // ---------- Boot ----------
   if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone) $('hint').hidden = true;
+  else if (/Android/i.test(navigator.userAgent)) $('hint').textContent = 'Tip: Chrome menu (\u22ee) \u2192 Add to Home screen opens this card in one tap.';
   const fromHash = (location.hash || '').slice(1);
   let start = TABS[fromHash] ? fromHash : getC('fb_card_tab');
   if (!TABS[start]) start = 'linkedin';
