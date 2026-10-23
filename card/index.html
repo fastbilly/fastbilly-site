@@ -83,6 +83,107 @@
     .act { display: grid; place-items: center; text-align: center; padding: 12px; min-height: 48px; border-radius: 14px; border: 1px solid var(--line); background: var(--bg2); color: var(--text); font-weight: 600; font-size: 14px; }
     .hint { margin-top: 14px; text-align: center; font-size: 12px; color: var(--muted); font-family: var(--mono); }
     [hidden] { display: none !important; }
+
+    .pocket { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 0 0 14px; }
+    .pocket button { appearance: none; border: 1px solid rgba(255,107,216,.45); background: rgba(255,107,216,.10); color: var(--text); border-radius: 16px; padding: 12px 4px; min-height: 72px; font: 600 12.5px var(--sans); display: grid; justify-items: center; gap: 6px; cursor: pointer; }
+    .pocket button svg { width: 22px; height: 22px; color: var(--m); }
+    .pocket button:active { transform: scale(.97); }
+    .tools-lock { display: block; margin: 14px auto 0; background: none; border: 0; color: var(--muted); font: 12px var(--mono); padding: 8px; cursor: pointer; opacity: .7; }
+
+    .sheet { position: fixed; inset: 0; z-index: 50; background: var(--bg); display: flex; flex-direction: column; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+    .sheet-top { display: grid; grid-template-columns: 48px 1fr 48px; align-items: center; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+    .sheet-close { appearance: none; border: 0; background: var(--bg2); color: var(--text); width: 44px; height: 44px; border-radius: 12px; font-size: 20px; cursor: pointer; }
+    .sheet-title { text-align: center; font-weight: 700; color: var(--text); font-size: 16px; }
+    .sheet-body { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 18px 20px 40px; width: 100%; max-width: 560px; margin: 0 auto; }
+
+    .h-hello { font-family: var(--serif); font-size: 38px; line-height: 1.02; color: var(--text); margin: 4px 0 8px; }
+    .h-hello em { color: var(--m); }
+    .h-sub { margin: 0 0 18px; color: var(--body); font-size: 15.5px; }
+    .f { display: grid; gap: 6px; margin-bottom: 12px; }
+    .f > span { font-size: 13px; font-weight: 600; color: var(--text); }
+    .f input, .f textarea { font: 16px var(--sans); color: var(--text); background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 13px 14px; width: 100%; min-height: 50px; }
+    .f textarea { min-height: 96px; resize: vertical; }
+    .f input:focus, .f textarea:focus { outline: none; border-color: var(--t); }
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .mic-wrap { position: relative; }
+    .mic { position: absolute; right: 8px; bottom: 8px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--m); color: #211E24; display: grid; place-items: center; cursor: pointer; }
+    .mic svg { width: 20px; height: 20px; }
+    .mic.on { background: #ff5f73; animation: micpulse 1.2s infinite; }
+    @keyframes micpulse { 0% { box-shadow: 0 0 0 0 rgba(255,95,115,.6); } 70% { box-shadow: 0 0 0 12px rgba(255,95,115,0); } 100% { box-shadow: 0 0 0 0 rgba(255,95,115,0); } }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 14px; }
+    .chips label { position: relative; }
+    .chips input { position: absolute; opacity: 0; inset: 0; }
+    .chips span { display: inline-block; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line); font-size: 14px; color: var(--body); background: var(--bg2); }
+    .chips input:checked + span { background: var(--t); border-color: var(--t); color: #211E24; font-weight: 700; }
+    .photo { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px dashed rgba(251,243,250,.25); border-radius: 14px; margin-bottom: 16px; cursor: pointer; }
+    .photo img { width: 56px; height: 56px; border-radius: 12px; object-fit: cover; }
+    .photo .ph { width: 56px; height: 56px; border-radius: 12px; background: var(--bg3); display: grid; place-items: center; color: var(--t); }
+    .photo b { color: var(--text); display: block; font-size: 14.5px; }
+    .photo small { color: var(--muted); font-size: 12.5px; }
+    .photo input { display: none; }
+    .big-btn { appearance: none; border: 0; width: 100%; min-height: 56px; border-radius: 16px; background: var(--m); color: #211E24; font: 700 16.5px var(--sans); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; }
+    .big-btn.alt { background: var(--bg2); color: var(--text); border: 1px solid var(--line); }
+    .big-btn:disabled { opacity: .6; }
+    .fine { font-size: 12.5px; color: var(--muted); margin: 10px 0 0; text-align: center; }
+    .err { color: #ff8fa3; font-size: 14px; min-height: 20px; margin: 8px 0 0; }
+
+    .think { text-align: center; padding: 50px 10px; }
+    .orb { width: 84px; height: 84px; margin: 0 auto 22px; border-radius: 50%; background: conic-gradient(from 0deg, var(--m), var(--t), var(--m)); animation: spin 1.4s linear infinite; mask: radial-gradient(circle, transparent 52%, #000 54%); -webkit-mask: radial-gradient(circle, transparent 52%, #000 54%); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .think-line { color: var(--text); font-size: 17px; font-weight: 600; min-height: 26px; }
+    .think-sub { color: var(--muted); font-size: 13px; margin-top: 6px; font-family: var(--mono); }
+
+    .note { background: var(--bg2); border: 1px solid rgba(79,209,197,.4); border-radius: 18px; padding: 16px; margin: 10px 0 14px; }
+    .note-k { font: 11px var(--mono); letter-spacing: .12em; color: var(--t); margin-bottom: 8px; }
+    .note textarea { width: 100%; min-height: 150px; background: transparent; border: 0; color: var(--text); font: 16px/1.5 var(--sans); resize: vertical; padding: 0; }
+    .note textarea:focus { outline: none; }
+    .stack { display: grid; gap: 10px; }
+    .qr-mini { display: grid; grid-template-columns: 112px 1fr; gap: 14px; align-items: center; padding: 14px; border: 1px solid var(--line); border-radius: 16px; background: var(--bg2); margin-top: 10px; }
+    .qr-mini .qrw { background: #fff; border-radius: 12px; padding: 8px; }
+    .qr-mini .qrw svg { width: 100%; height: auto; display: block; }
+    .qr-mini b { color: var(--text); display: block; }
+    .qr-mini small { color: var(--muted); font-size: 13px; }
+
+    .demo { border: 1px solid var(--line); border-radius: 18px; padding: 16px; background: var(--bg2); margin-bottom: 12px; }
+    .demo-tag { font: 11px var(--mono); letter-spacing: .1em; color: var(--t); text-transform: uppercase; }
+    .demo h3 { margin: 4px 0 6px; color: var(--text); font-size: 19px; }
+    .demo p { margin: 0 0 12px; font-size: 14.5px; color: var(--body); }
+    .demo .tip { font-size: 13px; color: var(--muted); margin-top: -4px; }
+    .demo-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill-btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 14px; min-height: 44px; border-radius: 999px; border: 1px solid var(--line); color: var(--text); font-weight: 600; font-size: 14px; background: var(--bg); cursor: pointer; font-family: var(--sans); text-decoration: none; }
+    .pill-btn.hot { background: var(--m); border-color: var(--m); color: #211E24; }
+    .demo-qr { margin-top: 12px; background: #fff; border-radius: 16px; padding: 14px; max-width: 260px; }
+    .demo-qr svg { width: 100%; display: block; }
+    .lede { color: var(--body); font-size: 15px; margin: 0 0 16px; }
+    .lede b { color: var(--text); }
+
+    .person { border: 1px solid var(--line); border-radius: 18px; padding: 14px; background: var(--bg2); margin-bottom: 12px; }
+    .p-head { display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: center; }
+    .p-head img, .p-head .ph { width: 52px; height: 52px; border-radius: 12px; object-fit: cover; background: var(--bg3); display: grid; place-items: center; color: var(--m); font-weight: 700; font-size: 20px; }
+    .p-name { color: var(--text); font-weight: 700; font-size: 16.5px; }
+    .p-meta { color: var(--muted); font-size: 13px; }
+    .p-body { font-size: 14px; margin-top: 10px; color: var(--body); }
+    .p-body b { color: var(--text); }
+    .p-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .done-badge { font: 11px var(--mono); color: var(--t); }
+
+    .g-hero { border: 1px solid rgba(79,209,197,.4); border-radius: 18px; padding: 16px; background: var(--bg2); }
+    .g-kicker { font: 11px var(--mono); letter-spacing: .12em; color: var(--t); }
+    .g-hero h2 { font-family: var(--serif); font-weight: 400; font-size: 34px; margin: 4px 0; color: var(--text); }
+    .g-hero p { margin: 0 0 10px; font-size: 14.5px; }
+    .g-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+    .g-btn { padding: 10px 14px; border-radius: 999px; background: var(--m); color: #211E24; font-weight: 700; font-size: 14px; }
+    .g-small { font-size: 13px; color: var(--muted); }
+    .g-small b { color: var(--text); }
+    .sheet-body h3 { color: var(--text); font-size: 17px; margin: 24px 0 10px; }
+    .g-time, .g-steps, .g-list { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: 14.5px; }
+    .g-time b, .g-steps b { color: var(--text); }
+    .g-time em { display: block; font-style: normal; color: var(--t); font-size: 12.5px; }
+    .g-card { border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; margin-bottom: 8px; background: var(--bg2); font-size: 14px; }
+    .g-card b { display: block; color: var(--text); margin-bottom: 3px; }
+    .g-card span { color: var(--body); }
+    .g-say { border-left: 3px solid var(--m); padding: 10px 14px; background: var(--bg2); border-radius: 0 12px 12px 0; color: var(--text); font-size: 15.5px; }
+    .settings { margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--line); }
   </style>
 </head>
 <body>
@@ -100,6 +201,12 @@
       <p><b>Growth operator</b> · company of one</p>
     </div>
 
+    <nav class="pocket" id="pocket" hidden aria-label="Bill's pocket tools">
+      <button data-mode="handoff"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM10 18h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Hand off</button>
+      <button data-mode="demos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Show &amp; tell</button>
+      <button data-mode="people"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 20c.6-3.3 3-5 6-5s5.4 1.7 6 5M16 5.5a3 3 0 0 1 0 5.6M18 15c1.8.6 2.8 2.2 3 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>People</button>
+      <button data-mode="today"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 3v4M16 3v4M4 10h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Today</button>
+    </nav>
     <div class="tabs" role="tablist" aria-label="Ways to connect">
       <button class="tab" role="tab" id="t-linkedin" aria-controls="panel" data-tab="linkedin">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4v11H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6v5.4h-4v-4.8c0-1.2 0-2.7-1.6-2.7s-1.9 1.3-1.9 2.6v4.9h-4z" fill="currentColor"/></svg>
@@ -144,8 +251,18 @@
       <a class="act" href="../#contact">Send me a note</a>
       <a class="act" href="../">About Bill</a>
     </div>
+    <button class="tools-lock" id="toolsLock">Bill's tools</button>
     <p class="hint" id="hint">Tip: Share → Add to Home Screen opens this card in one tap.</p>
   </main>
+
+  <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="sheet-top">
+      <button class="sheet-close" id="sheetClose" aria-label="Close">←</button>
+      <div class="sheet-title" id="sheetTitle"></div>
+      <span class="sheet-spacer"></span>
+    </div>
+    <div class="sheet-body" id="sheetBody"></div>
+  </div>
 
   <script src="../assets/qrcode.js"></script>
   <script src="./card.js"></script>
